@@ -3,11 +3,12 @@
 A minimal, production-oriented blueprint for the “third way”:
 
 - **AutoSkill** handles **skill extraction → maintenance (add/merge/discard) → versioning** (asynchronous, offline).
-- **AGENTS.md-style DocIndex** handles **usage**: *Explore index → Expand leaf docs*.
+- **AGENTS.md DocIndex** handles **usage**: *Explore index → Expand leaf docs*.
 
 This repo focuses on the **DocIndex + leaf SkillBank filesystem layout** (no embeddings, no vector DB).
 
 ## Key idea
+
 > **Prefer retrieval-led reasoning over pre-training-led reasoning.**
 
 Instead of hoping an agent will *decide* to trigger a skill or run semantic search, we keep a small routing table (DocIndex) always present.
@@ -36,24 +37,9 @@ tests/
 
 ## Conventions (v0.1)
 
-- Leaf = directory + exactly one file: `SKILL.md`
-- DocIndex contains only **leaf paths** (filenames omitted by convention)
-- Expand leaf = open: `SkillBank/skills/<section_path>/<leaf_name>/SKILL.md`
-
-## DocIndex format
-
-The index is intentionally compressed (low redundancy) to reduce token bloat.
-
-Each line groups leaves under a section:
-
-- `|<section_path>:{<leaf_name_1>,<leaf_name_2>,...}`
-
-Example:
-
-```text
-|github:{gh-cli}
-|memory:{plugmem-internal,plugmem-deepseek-demo}
-```
+- Leaf = directory + exactly one entry file: `SKILL.md`
+- DocIndex lines are **one leaf path per line** (filenames omitted by convention)
+- Expand leaf = open: `SkillBank/skills/<leaf_path>/SKILL.md`
 
 ## Generate / inject DocIndex
 

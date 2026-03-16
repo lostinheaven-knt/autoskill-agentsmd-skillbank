@@ -4,9 +4,9 @@ This repo is designed to be used with **minimal OpenClaw core embedding**.
 
 We enforce a strong constraint for token efficiency and determinism:
 
-- Runtime should rely on **AGENTS.md DocIndex (explore→expand)**
+- Runtime should rely on **AGENTS.md DocIndex (Explore→Expand)**
 - The OpenClaw workspace `skills/` directory should be **empty (or curated-only)**
-- All original skills are migrated into a **read-only seed store** (`skill-seeds/`) and are **not loaded** by default
+- All original skills are archived into a **read-only seed store** (`skill-seeds/`) and are **not loaded** by default
 
 > IMPORTANT: **Do NOT run this on your main workspace**.
 > Use a dedicated test workspace (recommended: `~/.openclaw/workspace_tester`).
@@ -50,42 +50,47 @@ We recommend:
 
 The installer will create it if missing.
 
-### 2) Run installer (archives skills into seeds; empties runtime skills)
+### 2) Run installer twice (two seed sources)
+
+Initial import must **only copy** from these two sources:
+
+- `~/.openclaw/workspace/skills/`
+- `~/.openclaw/workspace/.agents/skills/`
+
+#### 2.1 Archive `~/.openclaw/workspace/skills` into seeds
 
 ```bash
 python scripts/install_into_openclaw_workspace.py \
   --workspace ~/.openclaw/workspace_tester \
-  --seeds-from ~/.openclaw/workspace/skills
+  --seeds-from ~/.openclaw/workspace/skills \
+  --seeds-name openclaw-workspace-skills
 ```
 
-This will:
+#### 2.2 Archive `~/.openclaw/workspace/.agents/skills` into seeds
 
-- Copy `--seeds-from` (full skill directories) into:
-  - `<repo>/skill-seeds/openclaw-workspace-skills/`
+```bash
+python scripts/install_into_openclaw_workspace.py \
+  --workspace ~/.openclaw/workspace_tester \
+  --seeds-from ~/.openclaw/workspace/.agents/skills \
+  --seeds-name openclaw-agents-skills
+```
+
+Each run will also:
+
 - Ensure `<workspace>/skills/` exists and is empty (curated-only by default)
 - Copy this repo’s `SkillBank/` into `<workspace>/SkillBank/`
 - Write/update `<workspace>/AGENTS.md` and inject the DocIndex block
 
 ---
 
-## DocIndex format
+## DocIndex format (v0.1)
 
-The index is intentionally compressed (low redundancy) to reduce token bloat.
-
-Each line groups leaves under a section:
-
-- `|<section_path>:{<leaf_name_1>,<leaf_name_2>,...}`
-
-Example:
-
-```text
-|github:{gh-cli}
-|memory:{plugmem-internal,plugmem-deepseek-demo}
-```
+- One leaf path per line.
+- Filenames are omitted by convention.
 
 Expanding a leaf means opening:
 
-- `./SkillBank/skills/<section_path>/<leaf_name>/SKILL.md`
+- `./SkillBank/skills/<leaf_path>/SKILL.md`
 
 ---
 

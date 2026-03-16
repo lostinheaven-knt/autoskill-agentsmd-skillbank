@@ -26,6 +26,6 @@ def test_build_index_deterministic(tmp_path: Path):
     out2 = run()
     assert out1 == out2
 
-    # v0.2 index format compresses leaves into section:{leaf,...}
-    assert "|coding/refactor:{safe-refactor}" in out1
-    assert "|debugging:{first-15-min}" in out1
+    # v0.1 format: one leaf path per line
+    assert "|coding/refactor/safe-refactor" in out1
+    assert "|debugging/first-15-min" in out1

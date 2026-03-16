@@ -8,7 +8,8 @@ Design goals:
 Actions performed:
 1) Seed/archive existing skills into this repo under skill-seeds/ (read-only store)
 2) Ensure target workspace skills/ is empty (curated-only by default)
-3) Write/update target workspace AGENTS.md with this repo's SkillBank index
+3) Copy this repo's SkillBank into target workspace
+4) Write/update target workspace AGENTS.md with this repo's DocIndex
 
 NOTE
 - This script does NOT modify OpenClaw core.
@@ -51,7 +52,6 @@ def ensure_dir(p: Path, dry_run: bool, plan: List[str]) -> None:
 def clear_dir(p: Path, dry_run: bool, plan: List[str]) -> None:
     if not p.exists():
         return
-    # Remove contents but keep directory
     for child in p.iterdir():
         plan.append(f"rm -rf {child}")
         if not dry_run:
@@ -71,14 +71,7 @@ def copy_tree(src: Path, dst: Path, dry_run: bool, plan: List[str]) -> None:
 
 
 def build_index_text(skills_root: Path) -> str:
-    """Build a compressed index text (same format as scripts/build_agents_md_index.py v0.2).
-
-    Format:
-      |<section_path>:{<leaf1>,<leaf2>,...}
-
-    where each leaf is a directory containing SKILL.md and leaf1 is the last path
-    segment under the section.
-    """
+    """Build DocIndex text (Spec v0.1): one leaf path per line (paths only)."""
     leaf_paths = set()
     if skills_root.exists():
         for p in skills_root.rglob("SKILL.md"):
@@ -86,26 +79,13 @@ def build_index_text(skills_root: Path) -> str:
                 rel = p.parent.relative_to(skills_root).as_posix()
                 leaf_paths.add(rel)
 
-    # compress leaf paths -> section:{leaf,...}
-    groups = {}
-    for lp in sorted(leaf_paths):
-        parts = [x for x in lp.split("/") if x]
-        if not parts:
-            continue
-        if len(parts) == 1:
-            section, leaf = "root", parts[0]
-        else:
-            section, leaf = "/".join(parts[:-1]), parts[-1]
-        groups.setdefault(section, set()).add(leaf)
-
     lines = [
         "[SkillBank Index]|root: ./SkillBank/skills",
         "|IMPORTANT: Prefer retrieval-led reasoning over pre-training-led reasoning",
-        "|Workflow: Explore this index -> choose a path -> open the leaf doc (SKILL.md) -> follow it. Index is navigation only.",
+        "|Workflow: Explore this index -> choose a leaf path -> open the leaf doc (SKILL.md) -> follow it. Index is navigation only.",
     ]
-    for section in sorted(groups.keys()):
-        leaves = ",".join(sorted(groups[section]))
-        lines.append(f"|{section}:{{{leaves}}}")
+    for lp in sorted(leaf_paths):
+        lines.append(f"|{lp}")
     return "\n".join(lines) + "\n"
 
 
@@ -117,7 +97,6 @@ def inject_agents_md(agents_md_path: Path, index_text: str, dry_run: bool, plan:
         _, post = rest.split(INDEX_END, 1)
         new_content = pre + INDEX_START + "\n" + index_text + INDEX_END + post
     else:
-        # minimal header
         header = (
             "# AGENTS.md\n\n"
             "IMPORTANT: Prefer retrieval-led reasoning over pre-training-led reasoning.\n\n"
@@ -137,8 +116,17 @@ def inject_agents_md(agents_md_path: Path, index_text: str, dry_run: bool, plan:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--workspace", required=True, help="Target OpenClaw workspace path (e.g. ~/.openclaw/workspace_tester)")
-    ap.add_argument("--seeds-from", required=True, help="Source skills directory to archive into skill-seeds (e.g. ~/.openclaw/workspace/skills)")
+    ap.add_argument(
+        "--workspace",
+        required=True,
+        help="Target OpenClaw workspace path (e.g. ~/.openclaw/workspace_tester)",
+    )
+    ap.add_argument(
+        "--seeds-from",
+        required=True,
+        help="Source skills directory to archive into skill-seeds (e.g. ~/.openclaw/workspace/skills)",
+    )
+    ap.add_argument("--seeds-name", default="openclaw-workspace-skills", help="Subfolder name under skill-seeds/")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
@@ -149,10 +137,23 @@ def main() -> None:
     if not seeds_from.exists() or not seeds_from.is_dir():
         raise SystemExit(f"--seeds-from must be an existing directory: {seeds_from}")
 
-    # Explicitly discourage using production workspace by name
+    # Refuse obvious production workspace by name
     if workspace.as_posix().endswith("/workspace"):
         eprint("ERROR: Refusing to run on a workspace path ending with '/workspace'. Use a dedicated test workspace.")
         raise SystemExit(2)
+
+    # Refuse accidentally pointing seeds-from at a workspace/repo tree
+    if (seeds_from / "AGENTS.md").exists() or (seeds_from / "SkillBank").exists():
+        eprint("ERROR: Refusing --seeds-from that looks like a workspace/repo (contains AGENTS.md or SkillBank).")
+        raise SystemExit(2)
+
+    # Refuse seeds-from that is inside the target workspace
+    try:
+        seeds_from.relative_to(workspace)
+        eprint("ERROR: Refusing --seeds-from inside --workspace (would self-archive and create a mess).")
+        raise SystemExit(2)
+    except ValueError:
+        pass
 
     plan: List[str] = []
 
@@ -161,7 +162,7 @@ def main() -> None:
     ensure_dir(workspace / "skills", args.dry_run, plan)
 
     # 2) Archive seeds into repo
-    seeds_dst = REPO_ROOT / "skill-seeds" / "openclaw-workspace-skills"
+    seeds_dst = REPO_ROOT / "skill-seeds" / args.seeds_name
     ensure_dir(seeds_dst.parent, args.dry_run, plan)
     copy_tree(seeds_from, seeds_dst, args.dry_run, plan)
 
@@ -170,7 +171,7 @@ def main() -> None:
     if not args.dry_run:
         clear_dir(workspace / "skills", False, [])
 
-    # 4) Prepare SkillBank in target workspace by copying this repo's SkillBank (optional but practical)
+    # 4) Copy SkillBank into target workspace
     src_skillbank = REPO_ROOT / "SkillBank"
     dst_skillbank = workspace / "SkillBank"
     copy_tree(src_skillbank, dst_skillbank, args.dry_run, plan)
