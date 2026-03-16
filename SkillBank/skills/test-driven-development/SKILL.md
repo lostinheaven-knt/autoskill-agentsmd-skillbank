@@ -4,18 +4,13 @@
 TODO: Describe the purpose in 1-2 sentences.
 
 ## When to use
-**Always:**
 - New features
 - Bug fixes
 - Refactoring
 - Behavior changes
-
-**Exceptions (ask your human partner):**
 - Throwaway prototypes
 - Generated code
 - Configuration files
-
-Thinking "skip TDD just this once"? Stop. That's rationalization.
 
 ## When NOT to use
 - TODO: specify at least one situation where this skill should NOT be used.
@@ -27,8 +22,6 @@ Thinking "skip TDD just this once"? Stop. That's rationalization.
 
 ## Procedure
 1. TODO: refine this step with concrete actions and parameters.
-2. TODO: refine this step with concrete actions and parameters.
-3. TODO: refine this step with concrete actions and parameters.
 
 ## Checks
 - TODO: add at least one verifiable check.
@@ -45,3 +38,4 @@ TODO
 
 <!-- ORIGINAL_EXTRA_SECTIONS_DETECTED -->
 <!-- Please review original draft for additional headings not covered by the template. -->
+- merged: auto-dedupe merged similar skills

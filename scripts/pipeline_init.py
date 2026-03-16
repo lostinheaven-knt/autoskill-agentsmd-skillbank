@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-"""Bulk pipeline: seeds -> drafts -> (auto-fix) -> promote -> report -> reindex.
+"""Bulk pipeline: seeds -> drafts -> (auto-fix) -> promote -> dedupe/merge -> report -> reindex.
 
-This command is intended for initialization:
-- It ingests all seed skills into drafts.
-- It attempts to auto-fix draft SKILL.md to match our template (minimal safe edits).
-- It promotes passing drafts into curated SkillBank/skills.
-- It writes reports for failures/collisions.
-- It regenerates AGENTS.md DocIndex.
+Initialization-oriented batch job:
+- ingest seed skills into drafts
+- normalize draft SKILL.md structure (autofix)
+- promote passing drafts into curated SkillBank/skills
+- deduplicate + merge similar curated leaves automatically (keep canonical, move duplicates)
+- regenerate AGENTS.md DocIndex
 
 Safety:
 - Seeds are never modified.
-- Curated skills are never overwritten.
+- Curated leaves are never overwritten by promote.
+- Dedupe keeps a canonical leaf and moves duplicates to SkillBank/drafts/_merged/.
 
 """
 
@@ -29,7 +30,7 @@ def run(cmd: list[str]) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--apply", action="store_true", help="Apply changes (default is dry-run/print for substeps where supported)")
+    ap.add_argument("--apply", action="store_true", help="Apply changes")
     ap.add_argument(
         "--seeds",
         nargs="+",
@@ -37,6 +38,7 @@ def main() -> None:
         help="Seed folders under skill-seeds/ to ingest",
     )
     ap.add_argument("--force-import", action="store_true", help="Overwrite existing drafts during import")
+    ap.add_argument("--min-merge-group", type=int, default=2, help="Only merge groups with at least N leaves")
     args = ap.parse_args()
 
     # Phase A: import
@@ -53,6 +55,17 @@ def main() -> None:
 
     # Phase B2: promote
     cmd = ["python", str(REPO_ROOT / "scripts" / "promote_drafts.py")]
+    if args.apply:
+        cmd.append("--apply")
+    run(cmd)
+
+    # Phase C: dedupe/merge curated leaves
+    cmd = [
+        "python",
+        str(REPO_ROOT / "scripts" / "dedupe_merge_skills.py"),
+        "--min-group",
+        str(args.min_merge_group),
+    ]
     if args.apply:
         cmd.append("--apply")
     run(cmd)

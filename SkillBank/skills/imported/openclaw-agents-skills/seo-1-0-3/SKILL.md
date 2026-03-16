@@ -16,8 +16,6 @@ Agent needs to handle SEO: site audits, content optimization, keyword research, 
 
 ## Procedure
 1. TODO: refine this step with concrete actions and parameters.
-2. TODO: refine this step with concrete actions and parameters.
-3. TODO: refine this step with concrete actions and parameters.
 
 ## Checks
 - TODO: add at least one verifiable check.
@@ -34,3 +32,4 @@ TODO
 
 <!-- ORIGINAL_EXTRA_SECTIONS_DETECTED -->
 <!-- Please review original draft for additional headings not covered by the template. -->
+- merged: auto-dedupe merged similar skills

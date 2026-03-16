@@ -1,0 +1,198 @@
+{
+  "ai_tools": {
+    "mindflow_ai": {
+      "title": "MindFlow AI - 智能冥想伴侣 | Personalized Meditation Companion",
+      "description": "AI驱动的个性化冥想计划生成工具，结合实时情绪分析和渐进式放松指导，帮助用户缓解压力、改善睡眠质量。",
+      "features": [
+        "AI个性化冥想计划生成",
+        "实时情绪分析和调整",
+        "渐进式放松指导",
+        "睡眠质量跟踪",
+        "适合忙碌专业人士和冥想初学者",
+        "结合AI个性化与传统冥想智慧"
+      ],
+      "price": "$9.99",
+      "price_idr": "Rp 149,850",
+      "category": "AI Tools",
+      "tags": ["ai", "meditation", "wellness", "mental-health", "subscription"],
+      "inventory": 100,
+      "type": "digital",
+      "format": "Web App + Mobile App"
+    },
+    "ai_writing_assistant": {
+      "title": "AI写作助手 - 智能内容生成 | AI Writing Assistant",
+      "description": "基于先进语言模型的智能写作工具，支持博客文章、营销文案、技术文档等多种文体生成，提升写作效率和质量。",
+      "features": [
+        "多文体内容生成",
+        "智能语法和风格检查",
+        "SEO优化建议",
+        "多语言支持",
+        "团队协作功能",
+        "内容质量评估"
+      ],
+      "price": "$14.99",
+      "price_idr": "Rp 224,850",
+      "category": "AI Tools",
+      "tags": ["ai", "writing", "content-creation", "seo", "productivity"],
+      "inventory": 100,
+      "type": "digital",
+      "format": "Web App + API"
+    }
+  },
+  
+  "design_tools": {
+    "digital_canvas_pro": {
+      "title": "Digital Canvas Pro - 全能数字创作工具包 | Professional Digital Creation Suite",
+      "description": "专业的数字创作全能工具包，集成AI辅助设计、高级图层管理和多格式导出功能，为设计师和创意专业人士提供完整的创作解决方案。",
+      "features": [
+        "AI辅助设计生成",
+        "多格式导出（PNG/JPG/SVG/PDF）",
+        "高级图层管理",
+        "实时协作编辑",
+        "可定制模板库",
+        "专业数字艺术工具"
+      ],
+      "price": "$24.99",
+      "price_idr": "Rp 374,850",
+      "category": "Design Tools",
+      "tags": ["design", "creative", "graphic", "digital-art", "tools"],
+      "inventory": 100,
+      "type": "digital",
+      "format": "Desktop Software + Cloud"
+    },
+    "ui_ux_kit": {
+      "title": "UI/UX设计系统 - 专业界面组件库 | UI/UX Design System",
+      "description": "完整的UI/UX设计系统，包含响应式组件、设计规范和交互模式，帮助团队快速构建一致的用户界面。",
+      "features": [
+        "响应式设计组件",
+        "完整设计规范",
+        "交互模式库",
+        "设计令牌系统",
+        "团队协作工具",
+        "多平台适配"
+      ],
+      "price": "$39.99",
+      "price_idr": "Rp 599,850",
+      "category": "Design Tools",
+      "tags": ["ui", "ux", "design-system", "components", "framework"],
+      "inventory": 100,
+      "type": "digital",
+      "format": "Design Files + Code Components"
+    }
+  },
+  
+  "developer_tools": {
+    "codeaesthetic": {
+      "title": "CodeAesthetic - 代码美化与规范检查工具 | Code Beautification and Standardization",
+      "description": "智能代码美化与规范检查工具，支持自动格式化、编码规范检查和代码复杂度分析，帮助团队保持代码质量和一致性。",
+      "features": [
+        "自动代码格式化",
+        "编码规范合规检查",
+        "代码复杂度分析",
+        "团队协作配置同步",
+        "多语言支持（Python、JavaScript、Java、Go）",
+        "IDE集成插件"
+      ],
+      "price": "$19.99",
+      "price_idr": "Rp 299,850",
+      "category": "Developer Tools",
+      "tags": ["development", "programming", "code-quality", "tools", "software"],
+      "inventory": 100,
+      "type": "digital",
+      "format": "CLI Tool + IDE Extensions"
+    },
+    "api_testing_suite": {
+      "title": "API测试套件 - 自动化接口测试工具 | API Testing Suite",
+      "description": "全面的API测试套件，支持自动化测试、性能监控和安全性检查，确保API服务的可靠性和安全性。",
+      "features": [
+        "自动化API测试",
+        "性能监控和基准测试",
+        "安全性检查和渗透测试",
+        "文档生成和验证",
+        "CI/CD集成",
+        "团队协作和报告"
+      ],
+      "price": "$29.99",
+      "price_idr": "Rp 449,850",
+      "category": "Developer Tools",
+      "tags": ["api", "testing", "automation", "security", "devops"],
+      "inventory": 100,
+      "type": "digital",
+      "format": "Web App + CLI"
+    }
+  },
+  
+  "product_bundles": {
+    "ai_creator_bundle": {
+      "name": "AI创作者全能套装",
+      "description": "包含AI写作、设计和代码工具的创作者全能套装",
+      "products": ["ai_writing_assistant", "digital_canvas_pro", "codeaesthetic"],
+      "bundle_price": "$49.99",
+      "discount": "33%",
+      "tags": ["bundle", "ai", "creator", "value-pack"]
+    },
+    "developer_essentials": {
+      "name": "开发者必备工具集",
+      "description": "开发者日常工作所需的代码质量和API测试工具",
+      "products": ["codeaesthetic", "api_testing_suite"],
+      "bundle_price": "$39.99",
+      "discount": "20%",
+      "tags": ["bundle", "developer", "tools", "productivity"]
+    }
+  },
+  
+  "pricing_tiers": {
+    "basic": {
+      "name": "基础版",
+      "price_range": "$9.99 - $19.99",
+      "features": ["基础功能", "个人使用", "有限支持"],
+      "target": "个人用户和初学者"
+    },
+    "pro": {
+      "name": "专业版",
+      "price_range": "$19.99 - $49.99",
+      "features": ["高级功能", "团队协作", "优先支持", "API访问"],
+      "target": "专业人士和小团队"
+    },
+    "enterprise": {
+      "name": "企业版",
+      "price_range": "$49.99+",
+      "features": ["所有功能", "无限用户", "专属支持", "定制开发", "SLA保证"],
+      "target": "企业和组织"
+    }
+  },
+  
+  "metadata": {
+    "version": "1.0.0",
+    "created_at": "2026-03-03",
+    "updated_at": "2026-03-03",
+    "total_templates": 6,
+    "categories": ["AI Tools", "Design Tools", "Developer Tools"],
+    "author": "班吉",
+    "description": "Digital Essence店铺产品模板库，用于快速创建和上架数字产品"
+  },
+  
+  "usage_instructions": {
+    "how_to_use": [
+      "1. 选择合适的产品模板类别",
+      "2. 复制模板数据到产品创建函数",
+      "3. 根据需要调整产品信息",
+      "4. 使用自动化脚本创建产品",
+      "5. 验证产品创建结果"
+    ],
+    "customization_tips": [
+      "可根据目标市场调整价格",
+      "可添加本地化描述和特性",
+      "可调整库存数量",
+      "可添加特定标签和分类",
+      "可修改产品格式和交付方式"
+    ],
+    "best_practices": [
+      "保持产品描述清晰具体",
+      "突出产品核心价值和优势",
+      "使用有吸引力的产品标题",
+      "包含详细的功能特性列表",
+      "设置合理的价格和库存"
+    ]
+  }
+}

@@ -1,13 +1,5 @@
 # Leaf Skill Template
 
-> Each leaf is a directory containing exactly one `skill.md`.
-
-Copy this file to: `SkillBank/skills/<path>/skill.md`
-
----
-
-# <Skill Title>
-
 ## Purpose
 (1-2 sentences)
 
@@ -24,8 +16,6 @@ Copy this file to: `SkillBank/skills/<path>/skill.md`
 
 ## Procedure
 1. ...
-2. ...
-3. ...
 
 ## Checks
 - ...
@@ -39,3 +29,4 @@ Copy this file to: `SkillBank/skills/<path>/skill.md`
 
 ## Version / Changelog
 - v0.1.0 (YYYY-MM-DD): created
+- merged: auto-dedupe merged similar skills
