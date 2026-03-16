@@ -1,6 +1,6 @@
 # Leaf Skill Template
 
-> Each leaf is a directory containing exactly one `skill.md`.
+> Each leaf is a directory containing exactly one `SKILL.md`.
 
 Copy this file to: `SkillBank/skills/<path>/skill.md`
 

@@ -2,7 +2,7 @@
 
 Rules (v0.1):
 - root: ./SkillBank/skills
-- A leaf is any directory containing a file named skill.md
+- A leaf is any directory containing a file named SKILL.md
 - Output lines are deterministic and sorted.
 - Inject between markers in AGENTS.md:
     <!-- SKILLBANK_INDEX:START -->
@@ -11,11 +11,11 @@ Rules (v0.1):
 Index format:
     [SkillBank Index]|root: ./SkillBank/skills
     |IMPORTANT: Prefer retrieval-led reasoning over pre-training-led reasoning
-    |Workflow: Explore this index -> choose a path -> open the leaf doc (skill.md) -> follow it. Index is navigation only.
+    |Workflow: Explore this index -> choose a path -> open the leaf doc (SKILL.md) -> follow it. Index is navigation only.
     |<leaf_path>
 
 Note: leaf filenames are omitted on purpose. By convention, expanding a leaf means opening:
-    <root>/<leaf_path>/skill.md
+    <root>/<leaf_path>/SKILL.md
 """
 
 from __future__ import annotations
@@ -30,7 +30,7 @@ END = "<!-- SKILLBANK_INDEX:END -->"
 HEADER_LINES = [
     "[SkillBank Index]|root: ./SkillBank/skills",
     "|IMPORTANT: Prefer retrieval-led reasoning over pre-training-led reasoning",
-    "|Workflow: Explore this index -> choose a path -> open the leaf doc (skill.md) -> follow it. Index is navigation only.",
+    "|Workflow: Explore this index -> choose a path -> open the leaf doc (SKILL.md) -> follow it. Index is navigation only.",
 ]
 
 
@@ -39,7 +39,7 @@ def find_leaf_paths(root: Path) -> List[str]:
     leaf_paths = set()
     if not root.exists():
         return []
-    for p in root.rglob("skill.md"):
+    for p in root.rglob("SKILL.md"):
         if p.is_file():
             rel_dir = p.parent.relative_to(root)
             # Normalize to posix

@@ -8,8 +8,8 @@ def test_build_index_deterministic(tmp_path: Path):
     (root / "debugging" / "first-15-min").mkdir(parents=True)
     (root / "coding" / "refactor" / "safe-refactor").mkdir(parents=True)
 
-    (root / "debugging" / "first-15-min" / "skill.md").write_text("# a\n", encoding="utf-8")
-    (root / "coding" / "refactor" / "safe-refactor" / "skill.md").write_text("# b\n", encoding="utf-8")
+    (root / "debugging" / "first-15-min" / "SKILL.md").write_text("# a\n", encoding="utf-8")
+    (root / "coding" / "refactor" / "safe-refactor" / "SKILL.md").write_text("# b\n", encoding="utf-8")
 
     script = Path(__file__).resolve().parents[1] / "scripts" / "build_agents_md_index.py"
 
