@@ -92,7 +92,53 @@ A Python installer installs into `~/.openclaw/workspace_tester`:
 - Must refuse production-like workspace paths (e.g. ending with `/workspace`).
 - Must refuse `--seeds-from` that looks like a workspace/repo tree (contains `AGENTS.md` or `SkillBank/`).
 
-## 6) Definition of Done (scaffold)
+## 6) Self-check (does DocIndex -> SKILL.md work?)
+
+Run in the target workspace (recommended: `~/.openclaw/workspace_tester`).
+
+### 6.1 Verify every DocIndex leaf path resolves to a real SKILL.md file
+
+```bash
+cd ~/.openclaw/workspace_tester
+python - <<'PY'
+from pathlib import Path
+
+agents = Path('AGENTS.md').read_text(encoding='utf-8').splitlines()
+paths=[]
+for line in agents:
+    if not line.startswith('|'):
+        continue
+    s=line[1:].strip()
+    if not s or s.startswith('IMPORTANT') or s.startswith('Workflow') or s.startswith('[SkillBank Index]'):
+        continue
+    if '/' in s:
+        paths.append(s)
+
+missing=[]
+for p in paths:
+    f = Path('SkillBank/skills')/p/'SKILL.md'
+    if not f.exists():
+        missing.append(str(f))
+
+print('leaf_count:', len(paths))
+print('missing_count:', len(missing))
+if missing:
+    print('\n'.join(missing[:50]))
+PY
+```
+
+Expected:
+- `missing_count: 0`
+
+### 6.2 Open a leaf manually
+
+```bash
+sed -n '1,80p' SkillBank/skills/github/gh-cli/SKILL.md
+```
+
+If both checks pass, the DocIndex routing and leaf expansion path is confirmed working.
+
+## 7) Definition of Done (scaffold)
 
 - Deterministic DocIndex generator.
 - Tests covering deterministic output.
