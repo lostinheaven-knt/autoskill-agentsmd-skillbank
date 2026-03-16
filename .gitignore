@@ -19,3 +19,4 @@ SkillBank/skills_seeded/**/__pycache__/
 SkillBank/skills_seeded/superpowers-raw/
 skill-seeds/openclaw-agents-skills/superpowers-raw/
 skill-seeds/**/.git/
+skill-seeds/**/node_modules/
