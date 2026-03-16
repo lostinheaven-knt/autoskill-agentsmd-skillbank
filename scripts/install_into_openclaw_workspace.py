@@ -71,20 +71,41 @@ def copy_tree(src: Path, dst: Path, dry_run: bool, plan: List[str]) -> None:
 
 
 def build_index_text(skills_root: Path) -> str:
-    # Reuse the same logic as scripts/build_agents_md_index.py but keep this file standalone.
+    """Build a compressed index text (same format as scripts/build_agents_md_index.py v0.2).
+
+    Format:
+      |<section_path>:{<leaf1>,<leaf2>,...}
+
+    where each leaf is a directory containing SKILL.md and leaf1 is the last path
+    segment under the section.
+    """
     leaf_paths = set()
     if skills_root.exists():
         for p in skills_root.rglob("SKILL.md"):
             if p.is_file():
                 rel = p.parent.relative_to(skills_root).as_posix()
                 leaf_paths.add(rel)
+
+    # compress leaf paths -> section:{leaf,...}
+    groups = {}
+    for lp in sorted(leaf_paths):
+        parts = [x for x in lp.split("/") if x]
+        if not parts:
+            continue
+        if len(parts) == 1:
+            section, leaf = "root", parts[0]
+        else:
+            section, leaf = "/".join(parts[:-1]), parts[-1]
+        groups.setdefault(section, set()).add(leaf)
+
     lines = [
         "[SkillBank Index]|root: ./SkillBank/skills",
         "|IMPORTANT: Prefer retrieval-led reasoning over pre-training-led reasoning",
         "|Workflow: Explore this index -> choose a path -> open the leaf doc (SKILL.md) -> follow it. Index is navigation only.",
     ]
-    for lp in sorted(leaf_paths):
-        lines.append(f"|{lp}" if lp != "." else "|")
+    for section in sorted(groups.keys()):
+        leaves = ",".join(sorted(groups[section]))
+        lines.append(f"|{section}:{{{leaves}}}")
     return "\n".join(lines) + "\n"
 
 
