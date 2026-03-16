@@ -16,10 +16,10 @@
 ### 1.1 skill-seeds/ (read-only archive / backup)
 - Role: **backup + reference material** for extraction/merge.
 - Rule: **never modified by evolution**.
-- Source inputs (initial import):
+- Source inputs (initial import; COPY ONLY):
   - `~/.openclaw/workspace/skills/`
   - `~/.openclaw/workspace/.agents/skills/`
-- Important: seeds are not indexed and not loaded by OpenClaw runtime by default.
+- Important: seeds are **not indexed** and **not loaded** by OpenClaw runtime by default.
 
 ### 1.2 SkillBank/skills/ (curated, evolvable source-of-truth)
 - Role: where **curated leaf skills** live and evolve.
@@ -60,7 +60,7 @@ Inside the block:
 
 ### 3.3 Index lines (v0.1)
 - **One leaf per line**.
-- **Only leaf paths** (no filename, no `{...}`):
+- **Only leaf paths** (no filename, no `{...}`).
 
 Example:
 
@@ -91,12 +91,48 @@ A Python installer installs into `~/.openclaw/workspace_tester`:
 - Must support `--dry-run`.
 - Must refuse production-like workspace paths (e.g. ending with `/workspace`).
 - Must refuse `--seeds-from` that looks like a workspace/repo tree (contains `AGENTS.md` or `SkillBank/`).
+- Must refuse `--seeds-from` inside `--workspace` (avoid self-archiving loops).
 
-## 6) Self-check (does DocIndex -> SKILL.md work?)
+## 6) Initialization pipeline (seeds -> drafts -> autofix -> promote -> dedupe/merge)
+
+### 6.1 Why we need a pipeline
+
+Raw seed skills are heterogeneous and often incomplete. The curated SkillBank must be:
+- structured (template sections)
+- deduplicated (same functionality merged)
+- token-efficient (no vendored deps like node_modules)
+
+So initialization is a **batch pipeline**, not manual curation.
+
+### 6.2 Phases
+
+- **Phase A (import):** `skill-seeds/**` → `SkillBank/drafts/` (copy full directories; read-only seeds)
+- **Phase B0 (autofix):** normalize `SkillBank/drafts/**/SKILL.md` to match the template (adds minimal TODO placeholders; structure only)
+- **Phase B1 (promote):** drafts → curated `SkillBank/skills/` if quality gate passes (after autofix, most drafts should pass)
+- **Phase C (dedupe/merge):** automatically merge similar curated leaves:
+  - pick the best canonical leaf by a quality score (structure completeness, fewer TODOs, more checks/steps)
+  - merge in non-TODO bullets/steps/examples from duplicates
+  - move duplicates to `SkillBank/drafts/_merged/<group_id>/...` for traceability
+
+### 6.3 Dedupe/merge rules (current)
+
+- **No seed priority:** canonical selection is based on quality score + deterministic path tiebreak.
+- **Never merge TODO:** any bullet/step containing "TODO" is not merged into canonical.
+- **More aggressive grouping (v1):**
+  1) Tool-domain grouping (github/feishu/pytest/docker/ffmpeg/etc)
+  2) Title normalization grouping (strip versions/punctuation; merge near-duplicate titles)
+
+### 6.4 One-command init
+
+```bash
+python scripts/pipeline_init.py --apply
+```
+
+## 7) Self-check (does DocIndex -> SKILL.md work?)
 
 Run in the target workspace (recommended: `~/.openclaw/workspace_tester`).
 
-### 6.1 Verify every DocIndex leaf path resolves to a real SKILL.md file
+### 7.1 Verify every DocIndex leaf path resolves to a real SKILL.md file
 
 ```bash
 cd ~/.openclaw/workspace_tester
@@ -130,7 +166,7 @@ PY
 Expected:
 - `missing_count: 0`
 
-### 6.2 Open a leaf manually
+### 7.2 Open a leaf manually
 
 ```bash
 sed -n '1,80p' SkillBank/skills/github/gh-cli/SKILL.md
@@ -138,9 +174,9 @@ sed -n '1,80p' SkillBank/skills/github/gh-cli/SKILL.md
 
 If both checks pass, the DocIndex routing and leaf expansion path is confirmed working.
 
-## 7) Definition of Done (scaffold)
+## 8) Definition of Done (scaffold)
 
 - Deterministic DocIndex generator.
 - Tests covering deterministic output.
 - Installer supports `workspace_tester`, `dry-run`, and seed copying from the two sources.
-- No vendored dependencies committed (e.g., `node_modules/` under seeds).
+- No vendored dependencies committed (e.g., `node_modules/` under seeds or SkillBank).
