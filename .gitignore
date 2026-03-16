@@ -17,3 +17,5 @@ SkillBank/skills_seeded/**/__pycache__/
 *.png
 *.jpg
 SkillBank/skills_seeded/superpowers-raw/
+skill-seeds/openclaw-agents-skills/superpowers-raw/
+skill-seeds/**/.git/
