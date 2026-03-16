@@ -39,3 +39,4 @@ TODO
 <!-- ORIGINAL_EXTRA_SECTIONS_DETECTED -->
 <!-- Please review original draft for additional headings not covered by the template. -->
 - merged: auto-dedupe merged similar skills
+- merged: auto-dedupe merged similar skills

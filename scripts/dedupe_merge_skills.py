@@ -1,22 +1,30 @@
 #!/usr/bin/env python3
 """Deduplicate + merge promoted skills into stronger canonical leaves.
 
-Goal:
+Goal
 - Reduce redundant leaves (same/similar functionality) in SkillBank/skills.
 - Auto-merge the best parts into a canonical leaf.
 - Do NOT depend on source seed directory priority.
 - Do NOT merge TODO placeholders.
 
-Strategy (v0):
-- Group leaves by a coarse fingerprint (normalized title + key tokens from Purpose/Procedure).
-- Within a group, pick a canonical leaf by a simple quality score.
-- Merge in missing bullets/steps/examples from other leaves, de-duplicated.
-- Move non-canonical leaves to SkillBank/drafts/_merged/<group_id>/... (for traceability).
+Extra grouping rules (v1)
+1) Tool-domain grouping: if two leaves clearly belong to the same tool/domain (e.g. github/gh, feishu, pytest),
+   they are more likely to be duplicates and should be grouped more aggressively.
+2) Title similarity grouping: normalize titles (strip versions, punctuation) to merge near-duplicate titles.
+
+Strategy
+- Compute multiple grouping keys and pick the strongest available:
+  A) domain + normalized-title key (preferred)
+  B) fallback to coarse fingerprint (title + key tokens from Purpose/Procedure)
+
+Within each group:
+- Pick a canonical leaf by quality score (structure completeness, fewer TODOs, more checks/steps).
+- Merge in missing bullets/steps/examples from other leaves, de-duplicated (TODO lines never merged).
+- Move non-canonical leaves to SkillBank/drafts/_merged/<group_id>/... (traceability).
 
 This script is deterministic and safe:
-- By default: --print only.
+- By default: prints stats.
 - With --apply: writes canonical SKILL.md changes and moves merged leaves.
-
 """
 
 from __future__ import annotations
@@ -25,9 +33,8 @@ import argparse
 import hashlib
 import re
 import shutil
-from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Set, Tuple
+from typing import Dict, Iterable, List, Set, Tuple
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SKILLS_ROOT = REPO_ROOT / "SkillBank" / "skills"
@@ -48,6 +55,19 @@ SECTION_ORDER = [
 STOPWORDS = {
     "the","a","an","and","or","to","of","in","on","for","with","by","as","is","are","be","this","that",
     "you","your","it","we","our","from","at","into","then","if","else","do","does","did","can","should",
+}
+
+# Known domains we want to merge aggressively
+DOMAIN_HINTS = {
+    "github": ["github", "gh", "git", "pr", "pull request", "issues"],
+    "feishu": ["feishu", "lark"],
+    "git": ["git", "rebase", "merge", "branch"],
+    "pytest": ["pytest", "unit test", "tests"],
+    "docker": ["docker", "container"],
+    "browser": ["browser", "playwright", "selenium"],
+    "image": ["image", "png", "jpeg", "ocr"],
+    "video": ["video", "ffmpeg"],
+    "memory": ["memory", "plugmem"],
 }
 
 
@@ -104,21 +124,21 @@ def bullets(body: str) -> List[str]:
 
 
 def numbered_steps(body: str) -> List[str]:
-    out=[]
+    out = []
     for line in body.splitlines():
-        m=re.match(r"^\s*\d+\.\s+(.+)$", line)
+        m = re.match(r"^\s*\d+\.\s+(.+)$", line)
         if m:
-            txt=norm_ws(m.group(1))
+            txt = norm_ws(m.group(1))
             if txt:
                 out.append(txt)
     return out
 
 
 def dedup_preserve(seq: Iterable[str]) -> List[str]:
-    seen=set()
-    out=[]
+    seen = set()
+    out = []
     for x in seq:
-        k=x.lower()
+        k = x.lower()
         if k in seen:
             continue
         seen.add(k)
@@ -131,53 +151,98 @@ def render_section_bullets(items: List[str]) -> str:
 
 
 def render_section_steps(items: List[str]) -> str:
-    return "\n".join([f"{i+1}. {x}" for i,x in enumerate(items)]).strip()
+    return "\n".join([f"{i+1}. {x}" for i, x in enumerate(items)]).strip()
 
 
-def render_skill(title: str, sections: Dict[str,str]) -> str:
-    lines=[f"# {title}",""]
+def render_skill(title: str, sections: Dict[str, str]) -> str:
+    lines = [f"# {title}", ""]
     for sec in SECTION_ORDER:
         lines.append(f"## {sec}")
-        body=sections.get(sec, "").strip("\n")
+        body = sections.get(sec, "").strip("\n")
         if body:
             lines.append(body)
         lines.append("")
-    return "\n".join(lines).rstrip()+"\n"
+    return "\n".join(lines).rstrip() + "\n"
 
 
-def parse_sections(text: str) -> Dict[str,str]:
-    # simplistic: keep bodies for our known sections
-    sections={}
+def parse_sections(text: str) -> Dict[str, str]:
+    sections: Dict[str, str] = {}
     for sec in SECTION_ORDER:
-        b=section_body(text, sec)
+        b = section_body(text, sec)
         if b:
-            sections[sec]=b
+            sections[sec] = b
     return sections
 
 
 def quality_score(text: str) -> int:
-    # higher is better
-    score=0
+    score = 0
     for sec in SECTION_ORDER:
-        if re.search(r"^##\s+"+re.escape(sec)+r"\s*$", text, flags=re.MULTILINE|re.IGNORECASE):
+        if re.search(r"^##\s+" + re.escape(sec) + r"\s*$", text, flags=re.MULTILINE | re.IGNORECASE):
             score += 2
-    # fewer TODOs is better
-    todos=len([l for l in text.splitlines() if is_todo_line(l)])
+    todos = len([l for l in text.splitlines() if is_todo_line(l)])
     score -= todos
-    # more checks and failure modes is better
     score += len(bullets(section_body(text, "Checks")))
     score += len(bullets(section_body(text, "Failure modes")))
-    # more concrete steps is better
     score += len(numbered_steps(section_body(text, "Procedure")))
     return score
 
 
-def fingerprint(text: str) -> str:
+def coarse_fingerprint(text: str) -> str:
     title = extract_title(text).lower()
-    toks = tokenize(section_body(text,"Purpose") + "\n" + section_body(text,"Procedure"))
+    toks = tokenize(section_body(text, "Purpose") + "\n" + section_body(text, "Procedure"))
     key = " ".join([title] + toks[:30])
     key = re.sub(r"\s+", " ", key).strip()
-    # hash for stable grouping key
+    return hashlib.sha1(key.encode("utf-8")).hexdigest()[:12]
+
+
+def normalize_title_key(title: str) -> str:
+    t = title.lower()
+    # remove version-like tokens (v1.2.3, 1.0.0)
+    t = re.sub(r"\bv?\d+(?:\.\d+){1,3}\b", " ", t)
+    t = re.sub(r"\([^)]*\)", " ", t)
+    toks = [x for x in tokenize(t) if x]
+    # keep first few informative tokens
+    toks = toks[:6]
+    return "-".join(toks)
+
+
+def infer_domain_from_path(rel_path: str) -> str:
+    # e.g. github/gh-cli -> github
+    parts = [p for p in rel_path.split("/") if p]
+    if not parts:
+        return "misc"
+    top = parts[0]
+    if top in DOMAIN_HINTS:
+        return top
+    # handle common top-levels
+    if top in {"analysis", "debugging", "coding", "memory", "image", "video", "github", "feishu"}:
+        return top
+    return "misc"
+
+
+def infer_domain_from_text(text: str) -> str:
+    hay = (extract_title(text) + "\n" + section_body(text, "Purpose") + "\n" + section_body(text, "Procedure")).lower()
+    for dom, hints in DOMAIN_HINTS.items():
+        for h in hints:
+            if h in hay:
+                return dom
+    return "misc"
+
+
+def strong_group_key(rel_path: str, text: str) -> str:
+    # Rule 1: tool-domain grouping
+    dom = infer_domain_from_path(rel_path)
+    if dom == "misc":
+        dom = infer_domain_from_text(text)
+
+    # Rule 2: title similarity grouping
+    title_key = normalize_title_key(extract_title(text))
+
+    # If title_key is too weak, fallback to coarse fingerprint
+    if len(title_key.split("-")) < 2:
+        return coarse_fingerprint(text)
+
+    key = f"{dom}|{title_key}"
     return hashlib.sha1(key.encode("utf-8")).hexdigest()[:12]
 
 
@@ -185,12 +250,10 @@ def list_leaves() -> List[Path]:
     return sorted({p.parent for p in SKILLS_ROOT.rglob("SKILL.md")})
 
 
-def merge_into(canon_text: str, other_texts: List[str]) -> Tuple[str, List[str]]:
-    notes=[]
-    title=extract_title(canon_text)
-    sections=parse_sections(canon_text)
+def merge_into(canon_text: str, other_texts: List[str]) -> str:
+    title = extract_title(canon_text)
+    sections = parse_sections(canon_text)
 
-    # collect items
     def collect_bullets(sec: str) -> List[str]:
         items = bullets(sections.get(sec, ""))
         for t in other_texts:
@@ -198,8 +261,7 @@ def merge_into(canon_text: str, other_texts: List[str]) -> Tuple[str, List[str]]
                 if is_todo_line(it):
                     continue
                 items.append(it)
-        items = dedup_preserve(items)
-        return items
+        return dedup_preserve(items)
 
     def collect_steps() -> List[str]:
         items = numbered_steps(sections.get("Procedure", ""))
@@ -208,11 +270,9 @@ def merge_into(canon_text: str, other_texts: List[str]) -> Tuple[str, List[str]]
                 if is_todo_line(it):
                     continue
                 items.append(it)
-        items = dedup_preserve(items)
-        return items
+        return dedup_preserve(items)
 
-    # Merge selected sections
-    for sec in ["When to use","When NOT to use","Inputs / Preconditions","Checks","Failure modes"]:
+    for sec in ["When to use", "When NOT to use", "Inputs / Preconditions", "Checks", "Failure modes"]:
         merged = collect_bullets(sec)
         if merged:
             sections[sec] = render_section_bullets(merged)
@@ -221,8 +281,8 @@ def merge_into(canon_text: str, other_texts: List[str]) -> Tuple[str, List[str]]
     if steps:
         sections["Procedure"] = render_section_steps(steps)
 
-    # Examples: treat as bullets to avoid complex headings
-    ex_items = []
+    # Examples: keep as lines, but skip TODO
+    ex_items: List[str] = []
     ex_body = sections.get("Examples", "")
     if ex_body:
         ex_items.extend([l.strip() for l in ex_body.splitlines() if l.strip()])
@@ -234,7 +294,6 @@ def merge_into(canon_text: str, other_texts: List[str]) -> Tuple[str, List[str]]
     if ex_items:
         sections["Examples"] = "\n".join(ex_items)
 
-    # Changelog: append merged-from note
     v = sections.get("Version / Changelog", "")
     if v:
         v = v.strip() + "\n- merged: auto-dedupe merged similar skills\n"
@@ -242,57 +301,54 @@ def merge_into(canon_text: str, other_texts: List[str]) -> Tuple[str, List[str]]
         v = "- merged: auto-dedupe merged similar skills"
     sections["Version / Changelog"] = v
 
-    return render_skill(title, sections), notes
+    return render_skill(title, sections)
 
 
 def main() -> None:
-    ap=argparse.ArgumentParser()
+    ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--min-group", type=int, default=2, help="Only process groups with at least this many leaves")
-    args=ap.parse_args()
+    args = ap.parse_args()
 
-    leaves=list_leaves()
+    leaves = list_leaves()
     groups: Dict[str, List[Path]] = {}
+
     for d in leaves:
-        text=read_text(d/"SKILL.md")
-        fp=fingerprint(text)
-        groups.setdefault(fp, []).append(d)
+        rel = d.relative_to(SKILLS_ROOT).as_posix()
+        text = read_text(d / "SKILL.md")
+        gk = strong_group_key(rel, text)
+        groups.setdefault(gk, []).append(d)
 
-    # stable order
-    fps = sorted(groups.keys())
+    merged_groups = 0
+    moved = 0
+    updated = 0
 
-    merged_groups=0
-    moved=0
-    updated=0
-
-    for fp in fps:
-        ds = sorted(groups[fp])
+    for gk in sorted(groups.keys()):
+        ds = sorted(groups[gk])
         if len(ds) < args.min_group:
             continue
 
-        # choose canonical by quality score, tie-break by path
-        scored=[]
+        scored = []
         for d in ds:
-            t=read_text(d/"SKILL.md")
+            t = read_text(d / "SKILL.md")
             scored.append((quality_score(t), d.as_posix(), d))
         scored.sort(reverse=True)
         canon = scored[0][2]
         others = [x[2] for x in scored[1:]]
 
-        canon_text = read_text(canon/"SKILL.md")
-        other_texts = [read_text(o/"SKILL.md") for o in others]
-        new_text, _ = merge_into(canon_text, other_texts)
+        canon_text = read_text(canon / "SKILL.md")
+        other_texts = [read_text(o / "SKILL.md") for o in others]
+        new_text = merge_into(canon_text, other_texts)
 
         if new_text != canon_text:
             updated += 1
             if args.apply:
-                write_text(canon/"SKILL.md", new_text)
+                write_text(canon / "SKILL.md", new_text)
 
-        # move others out of curated
         merged_groups += 1
         for o in others:
             rel = o.relative_to(SKILLS_ROOT)
-            dst = MERGED_ROOT / fp / rel
+            dst = MERGED_ROOT / gk / rel
             moved += 1
             if args.apply:
                 dst.parent.mkdir(parents=True, exist_ok=True)
@@ -300,13 +356,15 @@ def main() -> None:
                     shutil.rmtree(dst)
                 shutil.move(str(o), str(dst))
 
-    print({
-        "leaves_total": len(leaves),
-        "groups_total": len(groups),
-        "groups_merged": merged_groups,
-        "canon_updated": updated,
-        "moved_to_drafts": moved,
-    })
+    print(
+        {
+            "leaves_total": len(leaves),
+            "groups_total": len(groups),
+            "groups_merged": merged_groups,
+            "canon_updated": updated,
+            "moved_to_drafts": moved,
+        }
+    )
 
 
 if __name__ == "__main__":
