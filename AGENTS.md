@@ -16,9 +16,8 @@ If you can't find a matching leaf:
 [SkillBank Index]|root: ./SkillBank/skills
 |IMPORTANT: Prefer retrieval-led reasoning over pre-training-led reasoning
 |Workflow: Explore this index -> choose a path -> open the leaf doc (SKILL.md) -> follow it. Index is navigation only.
-|coding/refactor/safe-refactor
-|debugging/first-15-min
-|github/gh-cli
-|memory/plugmem-deepseek-demo
-|memory/plugmem-internal
+|coding/refactor:{safe-refactor}
+|debugging:{first-15-min}
+|github:{gh-cli}
+|memory:{plugmem-deepseek-demo,plugmem-internal}
 <!-- SKILLBANK_INDEX:END -->

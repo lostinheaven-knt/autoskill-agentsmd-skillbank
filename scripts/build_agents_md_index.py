@@ -1,28 +1,39 @@
 """Build a compressed SkillBank index in the AGENTS.md style.
 
-Rules (v0.1):
+Rules (v0.2):
 - root: ./SkillBank/skills
 - A leaf is any directory containing a file named SKILL.md
-- Output lines are deterministic and sorted.
+- Output is deterministic and sorted.
 - Inject between markers in AGENTS.md:
     <!-- SKILLBANK_INDEX:START -->
     <!-- SKILLBANK_INDEX:END -->
 
-Index format:
+Index format (goal-oriented, multi-tree, low redundancy):
+
     [SkillBank Index]|root: ./SkillBank/skills
     |IMPORTANT: Prefer retrieval-led reasoning over pre-training-led reasoning
     |Workflow: Explore this index -> choose a path -> open the leaf doc (SKILL.md) -> follow it. Index is navigation only.
-    |<leaf_path>
 
-Note: leaf filenames are omitted on purpose. By convention, expanding a leaf means opening:
-    <root>/<leaf_path>/SKILL.md
+    # Each line maps a "section path" to a set of leaf names under that section:
+    |<section_path>:{<leaf_name_1>,<leaf_name_2>,...}
+
+Examples:
+    |github:{gh-cli}
+    |memory:{plugmem-internal,plugmem-deepseek-demo}
+    |coding/refactor:{safe-refactor}
+
+Conventions:
+- Leaf filenames are omitted. Expanding a leaf means opening:
+    <root>/<section_path>/<leaf_name>/SKILL.md
+- We intentionally avoid listing every full leaf path one-per-line to reduce token bloat.
 """
 
 from __future__ import annotations
 
 import argparse
+from collections import defaultdict
 from pathlib import Path
-from typing import Iterable, List, Tuple
+from typing import DefaultDict, Iterable, List, Set, Tuple
 
 START = "<!-- SKILLBANK_INDEX:START -->"
 END = "<!-- SKILLBANK_INDEX:END -->"
@@ -35,26 +46,50 @@ HEADER_LINES = [
 
 
 def find_leaf_paths(root: Path) -> List[str]:
-    """Return leaf paths relative to root, using POSIX separators."""
-    leaf_paths = set()
+    """Return leaf dir paths relative to root, using POSIX separators."""
     if not root.exists():
         return []
+    leaf_dirs: Set[str] = set()
     for p in root.rglob("SKILL.md"):
         if p.is_file():
-            rel_dir = p.parent.relative_to(root)
-            # Normalize to posix
-            leaf_paths.add(rel_dir.as_posix())
-    return sorted(leaf_paths)
+            leaf_dirs.add(p.parent.relative_to(root).as_posix())
+    return sorted(leaf_dirs)
+
+
+def compress_leaf_paths(leaf_paths: Iterable[str]) -> List[Tuple[str, List[str]]]:
+    """Compress full leaf paths into section->leafname groups.
+
+    For each leaf path like "a/b/c", we emit section "a/b" with leaf "c".
+    If a leaf is directly under root ("x"), section path is "root".
+
+    Returns:
+        Sorted list of (section_path, [leaf_names...])
+    """
+    groups: DefaultDict[str, Set[str]] = defaultdict(set)
+
+    for lp in leaf_paths:
+        parts = [p for p in lp.split("/") if p]
+        if not parts:
+            continue
+        if len(parts) == 1:
+            section = "root"
+            leaf = parts[0]
+        else:
+            section = "/".join(parts[:-1])
+            leaf = parts[-1]
+        groups[section].add(leaf)
+
+    compressed: List[Tuple[str, List[str]]] = []
+    for section in sorted(groups.keys()):
+        compressed.append((section, sorted(groups[section])))
+    return compressed
 
 
 def build_index_text(leaf_paths: Iterable[str]) -> str:
     lines = list(HEADER_LINES)
-    for lp in leaf_paths:
-        # Guard against '.' leaf (root itself)
-        if lp == ".":
-            lines.append("|")
-        else:
-            lines.append(f"|{lp}")
+    for section, leaves in compress_leaf_paths(leaf_paths):
+        leaf_list = ",".join(leaves)
+        lines.append(f"|{section}:{{{leaf_list}}}")
     return "\n".join(lines) + "\n"
 
 
@@ -64,7 +99,7 @@ def inject_into_agents_md(agents_md: Path, index_text: str) -> Tuple[str, bool]:
 
     if START in content and END in content:
         pre, rest = content.split(START, 1)
-        mid, post = rest.split(END, 1)
+        _mid, post = rest.split(END, 1)
         new_content = pre + START + "\n" + index_text + END + post
         return new_content, True
 
