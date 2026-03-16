@@ -1,0 +1,185 @@
+{
+  "store": {
+    "name": "Digital Essence",
+    "domain": "digital-essence-ai.genmystore.com",
+    "admin_url": "https://admin.genstore.ai/admin/bigsale-1f1o85026",
+    "home_url": "https://admin.genstore.ai/admin/bigsale-1f1o85026/home",
+    "products_url": "https://admin.genstore.ai/admin/bigsale-1f1o85026/products",
+    "login": {
+      "email": "chengze.chen@weimob.com",
+      "password_env": "GENSTORE_PASSWORD"
+    },
+    "currency": "IDR",
+    "timezone": "Asia/Shanghai"
+  },
+  
+  "operations": {
+    "preferred_method": "lui",
+    "fallback_method": "traditional",
+    "lui": {
+      "input_selector": "#chat-input-container",
+      "send_selector": "#ai-home-sent-message",
+      "chat_list_selector": "button[aria-label*='Chat List']",
+      "default_wait_time": 10
+    },
+    "traditional": {
+      "add_product_selector": "button:has-text('Add product')",
+      "digital_product_selector": "menuitem:has-text('Digital products')",
+      "title_selector": "textbox[placeholder*='T-shirt']",
+      "price_selector": "textbox[placeholder*='Price Rp']",
+      "inventory_selector": "spinbutton",
+      "save_selector": "button:has-text('Save')"
+    }
+  },
+  
+  "product_templates": {
+    "ai_tool": {
+      "category": "AI Tools",
+      "type": "digital",
+      "default_price_range": {
+        "min": 9.99,
+        "max": 49.99,
+        "currency": "USD"
+      },
+      "tags": ["ai", "digital", "subscription", "software"],
+      "inventory": 100,
+      "status": "active"
+    },
+    "design_tool": {
+      "category": "Design Tools",
+      "type": "digital",
+      "default_price_range": {
+        "min": 19.99,
+        "max": 99.99,
+        "currency": "USD"
+      },
+      "tags": ["design", "creative", "software", "graphic"],
+      "inventory": 100,
+      "status": "active"
+    },
+    "code_tool": {
+      "category": "Developer Tools",
+      "type": "digital",
+      "default_price_range": {
+        "min": 14.99,
+        "max": 79.99,
+        "currency": "USD"
+      },
+      "tags": ["development", "programming", "tools", "software"],
+      "inventory": 100,
+      "status": "active"
+    }
+  },
+  
+  "campaign_templates": {
+    "seasonal": {
+      "spring": {
+        "name": "Digital Spring Renewal",
+        "period": "March 15 - April 15",
+        "discount": "20%",
+        "tags": ["spring", "renewal", "discount"]
+      },
+      "summer": {
+        "name": "Summer Tech Sale",
+        "period": "June 1 - August 31",
+        "discount": "15%",
+        "tags": ["summer", "sale", "tech"]
+      }
+    },
+    "holiday": {
+      "black_friday": {
+        "name": "Black Friday Digital Deal",
+        "period": "November 25 - November 30",
+        "discount": "30%",
+        "tags": ["blackfriday", "deal", "discount"]
+      }
+    }
+  },
+  
+  "design_templates": {
+    "styles": {
+      "future_tech": {
+        "name": "Future Tech Style",
+        "colors": ["#00f5ff", "#ff00ff", "#0a0a0a"],
+        "description": "未来科技风格，采用电光青和赛博紫渐变"
+      },
+      "minimalist": {
+        "name": "Minimalist Style",
+        "colors": ["#ffffff", "#000000", "#f5f5f5"],
+        "description": "极简主义风格，黑白配色，简洁现代"
+      },
+      "nature": {
+        "name": "Nature Inspired",
+        "colors": ["#2e8b57", "#f0e68c", "#8b4513"],
+        "description": "自然灵感风格，绿色和大地色系"
+      }
+    }
+  },
+  
+  "automation": {
+    "daily_tasks": [
+      {
+        "name": "check_new_orders",
+        "time": "09:00",
+        "enabled": true
+      },
+      {
+        "name": "update_inventory",
+        "time": "10:00",
+        "enabled": true
+      },
+      {
+        "name": "send_daily_report",
+        "time": "17:00",
+        "enabled": true
+      }
+    ],
+    "weekly_tasks": [
+      {
+        "name": "weekly_sales_analysis",
+        "day": "monday",
+        "time": "11:00",
+        "enabled": true
+      },
+      {
+        "name": "competitor_analysis",
+        "day": "wednesday",
+        "time": "14:00",
+        "enabled": true
+      }
+    ],
+    "monthly_tasks": [
+      {
+        "name": "monthly_financial_report",
+        "day": 1,
+        "time": "10:00",
+        "enabled": true
+      },
+      {
+        "name": "store_design_review",
+        "day": 15,
+        "time": "15:00",
+        "enabled": true
+      }
+    ]
+  },
+  
+  "monitoring": {
+    "alerts": {
+      "low_inventory_threshold": 10,
+      "sales_drop_threshold": 20,
+      "response_time_threshold": 24
+    },
+    "metrics": {
+      "daily_sales": true,
+      "customer_growth": true,
+      "product_performance": true,
+      "website_traffic": true
+    }
+  },
+  
+  "version": "1.0.0",
+  "created_at": "2026-03-03",
+  "updated_at": "2026-03-03",
+  "author": "班吉"
+}

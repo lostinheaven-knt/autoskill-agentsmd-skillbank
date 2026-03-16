@@ -1,0 +1,68 @@
+{
+  "name": "feishu-api-operation",
+  "version": "1.0.0",
+  "description": "飞书API操作技能，封装图片、语音等媒体文件发送功能",
+  "author": "班吉",
+  "created_at": "2026-03-03",
+  "updated_at": "2026-03-03",
+  "dependencies": {
+    "python": ">=3.8",
+    "requests": ">=2.28.0"
+  },
+  "config": {
+    "app_id": "<REDACTED_FEISHU_APP_ID>",
+    "app_secret": "<REDACTED_FEISHU_APP_SECRET>",
+    "default_receive_id": "ou_cffdc0ae4ef4e314a9b7e3133c6d817d",
+    "default_receive_id_type": "open_id"
+  },
+  "permissions": {
+    "required": [
+      "im:image",
+      "im:file",
+      "im:message"
+    ],
+    "optional": [
+      "im:message.group",
+      "im:message.p2p"
+    ]
+  },
+  "apis": {
+    "auth": {
+      "get_token": "POST https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal"
+    },
+    "image": {
+      "upload": "POST https://open.feishu.cn/open-apis/im/v1/images",
+      "send": "POST https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type={type}"
+    },
+    "file": {
+      "upload": "POST https://open.feishu.cn/open-apis/im/v1/files",
+      "send": "POST https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type={type}"
+    },
+    "message": {
+      "send": "POST https://open.feishu.cn/open-apis/im/v1/messages?receive_id_type={type}"
+    }
+  },
+  "file_formats": {
+    "image": ["png", "jpg", "jpeg", "gif"],
+    "audio": ["amr", "m4a", "mp3"],
+    "video": ["mp4"],
+    "document": ["pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx"]
+  },
+  "examples": {
+    "send_image": "python scripts/feishu_api.py image --file /path/to/image.png",
+    "send_audio": "python scripts/feishu_api.py audio --file /path/to/audio.amr",
+    "send_text": "python scripts/feishu_api.py text --text 'Hello World'"
+  },
+  "troubleshooting": {
+    "open_id_cross_app": "检查open_id是否与当前应用匹配，查看feishu-allowFrom.json",
+    "permission_denied": "检查应用权限是否开启（im:image, im:file, im:message）",
+    "file_too_large": "检查文件大小是否符合飞书限制",
+    "invalid_format": "检查文件格式是否支持"
+  },
+  "notes": [
+    "所有媒体文件发送都需要两步：先上传获取key，再发送消息引用key",
+    "open_id必须与当前应用匹配，否则会出现'open_id cross app'错误",
+    "access_token有效期为2小时，过期需要重新获取",
+    "学习时间：2026年3月3日，菜头的生日场景"
+  ]
+}

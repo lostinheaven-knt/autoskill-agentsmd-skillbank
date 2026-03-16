@@ -16,19 +16,27 @@ If you can't find a matching leaf:
 [SkillBank Index]|root: ./SkillBank/skills
 |IMPORTANT: Prefer retrieval-led reasoning over pre-training-led reasoning
 |Workflow: Explore this index -> choose a leaf path -> open the leaf doc (SKILL.md) -> follow it. Index is navigation only.
+|426345955d8e/coding/refactor/safe-refactor
 |analysis/finance/a-stock-research
+|analysis/finance/finance-expert
 |clawdefender-1
+|content-creation
+|d1a7f8b7ccec/agent-browser
 |debugging/first-15-min
 |feishu-chat-history
 |feishu-cron-reminder
 |feishu-send-file
 |finance-expert
+|find-skills
+|finishing-a-development-branch
+|github-cli
 |github/gh-cli
 |imported/openclaw-agents-skills/a-stock-analysis-1-0-0
 |imported/openclaw-agents-skills/agent-self-reflection-1-0-0
 |imported/openclaw-agents-skills/architecture-designer-0-1-0
 |imported/openclaw-agents-skills/automation-workflows-0-1-0
 |imported/openclaw-agents-skills/backtest-expert-0-1-0
+|imported/openclaw-agents-skills/code-1-0-4
 |imported/openclaw-agents-skills/content-strategy-0-1-0
 |imported/openclaw-agents-skills/copywriting-0-1-0
 |imported/openclaw-agents-skills/debug-pro-1-0-0
@@ -49,14 +57,15 @@ If you can't find a matching leaf:
 |imported/openclaw-agents-skills/video-frames-1-0-0
 |media/image/image-generate
 |media/image/image-read
-|media/video/video-generate
-|media/video/video-read
 |memory/plugmem-deepseek-demo
 |memory/plugmem-internal
 |misc/agent-browser
 |misc/content-creation
 |misc/find-skills
+|misc/self-improvement
+|misc/veadk-go-skills
 |misc/veadk-skills
+|misc/web-design-guidelines
 |ops/feishu/feishu-api-operation
 |ops/feishu/feishu-doc
 |ops/feishu/feishu-drive
@@ -67,7 +76,10 @@ If you can't find a matching leaf:
 |plugmem-internal
 |product/genstore/genstore-operation
 |self-improvement
+|subagent-driven-development
 |supabase-postgres-best-practices
+|superpowers-brainstorming
+|superpowers-executing-plans
 |superpowers-raw/skills/brainstorming
 |superpowers-raw/skills/dispatching-parallel-agents
 |superpowers-raw/skills/executing-plans
@@ -75,13 +87,19 @@ If you can't find a matching leaf:
 |superpowers-raw/skills/receiving-code-review
 |superpowers-raw/skills/requesting-code-review
 |superpowers-raw/skills/subagent-driven-development
+|superpowers-raw/skills/systematic-debugging
+|superpowers-raw/skills/test-driven-development
+|superpowers-raw/skills/using-git-worktrees
 |superpowers-raw/skills/using-superpowers
 |superpowers-raw/skills/verification-before-completion
+|superpowers-raw/skills/writing-plans
 |superpowers-raw/skills/writing-skills
 |superpowers-writing-plans
 |systematic-debugging
 |test-driven-development
 |tushare
 |using-git-worktrees
+|video-generate
+|video-read
 |web-design-guidelines
 <!-- SKILLBANK_INDEX:END -->

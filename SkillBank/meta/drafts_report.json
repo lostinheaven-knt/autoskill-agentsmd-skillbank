@@ -1,16 +1,260 @@
 {
-  "promoted": [],
+  "promoted": [
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/10e78ca27df1/subagent-driven-development",
+      "target": "10e78ca27df1/subagent-driven-development"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/18e0d196a9f7/imported/openclaw-agents-skills/writing-plans-0-1-0",
+      "target": "18e0d196a9f7/imported/openclaw-agents-skills/writing-plans-0-1-0"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/18e0d196a9f7/imported/openclaw-agents-skills/writing-plans-0-1-0-backup",
+      "target": "18e0d196a9f7/imported/openclaw-agents-skills/writing-plans-0-1-0-backup"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/18e0d196a9f7/superpowers-raw/skills/writing-plans",
+      "target": "18e0d196a9f7/superpowers-raw/skills/writing-plans"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/1bcf9e966c56/github-cli",
+      "target": "1bcf9e966c56/github-cli"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/1c926fc298ec/finishing-a-development-branch",
+      "target": "1c926fc298ec/finishing-a-development-branch"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/1cb07cf623e0/misc/self-improvement",
+      "target": "1cb07cf623e0/misc/self-improvement"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/32a334fdc067/misc/veadk-go-skills",
+      "target": "32a334fdc067/misc/veadk-go-skills"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/367d5b2fbee3/imported/openclaw-agents-skills/brainstorming-0-1-0",
+      "target": "367d5b2fbee3/imported/openclaw-agents-skills/brainstorming-0-1-0"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/367d5b2fbee3/imported/openclaw-agents-skills/brainstorming-0-1-0-backup",
+      "target": "367d5b2fbee3/imported/openclaw-agents-skills/brainstorming-0-1-0-backup"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/367d5b2fbee3/superpowers-brainstorming",
+      "target": "367d5b2fbee3/superpowers-brainstorming"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/426345955d8e/coding/refactor/safe-refactor",
+      "target": "426345955d8e/coding/refactor/safe-refactor"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/77ce2bcef754/find-skills",
+      "target": "77ce2bcef754/find-skills"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/77f84098408c/superpowers-raw/skills/test-driven-development",
+      "target": "77f84098408c/superpowers-raw/skills/test-driven-development"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/85d3fa3a5e3f/superpowers-raw/skills/using-git-worktrees",
+      "target": "85d3fa3a5e3f/superpowers-raw/skills/using-git-worktrees"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/8b2e65b66b87/misc/web-design-guidelines",
+      "target": "8b2e65b66b87/misc/web-design-guidelines"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/92972d80b8d5/analysis/finance/finance-expert",
+      "target": "92972d80b8d5/analysis/finance/finance-expert"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/9a5fe4495470/content-creation",
+      "target": "9a5fe4495470/content-creation"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/d1a7f8b7ccec/agent-browser",
+      "target": "d1a7f8b7ccec/agent-browser"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/d7a0147da3b6/superpowers-raw/skills/systematic-debugging",
+      "target": "d7a0147da3b6/superpowers-raw/skills/systematic-debugging"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/ee8f54183a35/imported/openclaw-agents-skills/executing-plans-0-1-0",
+      "target": "ee8f54183a35/imported/openclaw-agents-skills/executing-plans-0-1-0"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/ee8f54183a35/imported/openclaw-agents-skills/executing-plans-0-1-0-backup",
+      "target": "ee8f54183a35/imported/openclaw-agents-skills/executing-plans-0-1-0-backup"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/ee8f54183a35/superpowers-executing-plans",
+      "target": "ee8f54183a35/superpowers-executing-plans"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/fc454cf43c85/imported/openclaw-agents-skills/code-1-0-4",
+      "target": "fc454cf43c85/imported/openclaw-agents-skills/code-1-0-4"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/fc454cf43c85/imported/openclaw-agents-skills/market-research-1-0-0",
+      "target": "fc454cf43c85/imported/openclaw-agents-skills/market-research-1-0-0"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/_merged/fc454cf43c85/imported/openclaw-agents-skills/ui-ux-pro-max-0-1-0",
+      "target": "fc454cf43c85/imported/openclaw-agents-skills/ui-ux-pro-max-0-1-0"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/agent-browser",
+      "target": "agent-browser"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/analysis/finance/finance-expert",
+      "target": "analysis/finance/finance-expert"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/brainstorming-0.1.0",
+      "target": "imported/openclaw-agents-skills/brainstorming-0-1-0"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/brainstorming-0.1.0-backup",
+      "target": "imported/openclaw-agents-skills/brainstorming-0-1-0-backup"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/code-1.0.4",
+      "target": "imported/openclaw-agents-skills/code-1-0-4"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/content-creation",
+      "target": "content-creation"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/executing-plans-0.1.0",
+      "target": "imported/openclaw-agents-skills/executing-plans-0-1-0"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/executing-plans-0.1.0-backup",
+      "target": "imported/openclaw-agents-skills/executing-plans-0-1-0-backup"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/find-skills",
+      "target": "find-skills"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/finishing-a-development-branch",
+      "target": "finishing-a-development-branch"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/github-cli",
+      "target": "github-cli"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/market-research-1.0.0",
+      "target": "imported/openclaw-agents-skills/market-research-1-0-0"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/misc/self-improvement",
+      "target": "misc/self-improvement"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/misc/veadk-go-skills",
+      "target": "misc/veadk-go-skills"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/misc/web-design-guidelines",
+      "target": "misc/web-design-guidelines"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/subagent-driven-development",
+      "target": "subagent-driven-development"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-brainstorming",
+      "target": "superpowers-brainstorming"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-executing-plans",
+      "target": "superpowers-executing-plans"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-raw/skills/systematic-debugging",
+      "target": "superpowers-raw/skills/systematic-debugging"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-raw/skills/test-driven-development",
+      "target": "superpowers-raw/skills/test-driven-development"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-raw/skills/using-git-worktrees",
+      "target": "superpowers-raw/skills/using-git-worktrees"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-raw/skills/writing-plans",
+      "target": "superpowers-raw/skills/writing-plans"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/ui-ux-pro-max-0.1.0",
+      "target": "imported/openclaw-agents-skills/ui-ux-pro-max-0-1-0"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/writing-plans-0.1.0",
+      "target": "imported/openclaw-agents-skills/writing-plans-0-1-0"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/writing-plans-0.1.0-backup",
+      "target": "imported/openclaw-agents-skills/writing-plans-0-1-0-backup"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-workspace-skills/a-stock-research",
+      "target": "a-stock-research"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-workspace-skills/feishu-api-operation",
+      "target": "feishu-api-operation"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-workspace-skills/feishu-doc",
+      "target": "feishu-doc"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-workspace-skills/feishu-drive",
+      "target": "feishu-drive"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-workspace-skills/feishu-perm",
+      "target": "feishu-perm"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-workspace-skills/feishu-wiki",
+      "target": "feishu-wiki"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-workspace-skills/genstore-operation",
+      "target": "genstore-operation"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-workspace-skills/image-generate",
+      "target": "image-generate"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-workspace-skills/image-read",
+      "target": "image-read"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-workspace-skills/video-generate",
+      "target": "video-generate"
+    },
+    {
+      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-workspace-skills/video-read",
+      "target": "video-read"
+    }
+  ],
   "failed": [],
   "collisions": [
     {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/a-stock-analysis-1.0.0",
       "target": "imported/openclaw-agents-skills/a-stock-analysis-1-0-0",
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/imported/openclaw-agents-skills/a-stock-analysis-1-0-0"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/agent-browser",
-      "target": "agent-browser",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/agent-browser"
     },
     {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/agent-self-reflection-1.0.0",
@@ -21,11 +265,6 @@
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/analysis/finance/a-stock-research",
       "target": "analysis/finance/a-stock-research",
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/analysis/finance/a-stock-research"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/analysis/finance/finance-expert",
-      "target": "analysis/finance/finance-expert",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/analysis/finance/finance-expert"
     },
     {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/architecture-designer-0.1.0",
@@ -43,29 +282,9 @@
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/imported/openclaw-agents-skills/backtest-expert-0-1-0"
     },
     {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/brainstorming-0.1.0",
-      "target": "imported/openclaw-agents-skills/brainstorming-0-1-0",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/imported/openclaw-agents-skills/brainstorming-0-1-0"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/brainstorming-0.1.0-backup",
-      "target": "imported/openclaw-agents-skills/brainstorming-0-1-0-backup",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/imported/openclaw-agents-skills/brainstorming-0-1-0-backup"
-    },
-    {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/clawdefender-1",
       "target": "clawdefender-1",
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/clawdefender-1"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/code-1.0.4",
-      "target": "imported/openclaw-agents-skills/code-1-0-4",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/imported/openclaw-agents-skills/code-1-0-4"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/content-creation",
-      "target": "content-creation",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/content-creation"
     },
     {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/content-strategy-0.1.0",
@@ -81,16 +300,6 @@
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/debug-pro-1.0.0",
       "target": "imported/openclaw-agents-skills/debug-pro-1-0-0",
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/imported/openclaw-agents-skills/debug-pro-1-0-0"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/executing-plans-0.1.0",
-      "target": "imported/openclaw-agents-skills/executing-plans-0-1-0",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/imported/openclaw-agents-skills/executing-plans-0-1-0"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/executing-plans-0.1.0-backup",
-      "target": "imported/openclaw-agents-skills/executing-plans-0-1-0-backup",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/imported/openclaw-agents-skills/executing-plans-0-1-0-backup"
     },
     {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/feishu-chat-history",
@@ -118,34 +327,14 @@
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/finance-expert"
     },
     {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/find-skills",
-      "target": "find-skills",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/find-skills"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/finishing-a-development-branch",
-      "target": "finishing-a-development-branch",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/finishing-a-development-branch"
-    },
-    {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/frontend-design-3-0.1.0",
       "target": "imported/openclaw-agents-skills/frontend-design-3-0-1-0",
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/imported/openclaw-agents-skills/frontend-design-3-0-1-0"
     },
     {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/github-cli",
-      "target": "github-cli",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/github-cli"
-    },
-    {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/interview-designer-1.0.0",
       "target": "imported/openclaw-agents-skills/interview-designer-1-0-0",
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/imported/openclaw-agents-skills/interview-designer-1-0-0"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/market-research-1.0.0",
-      "target": "imported/openclaw-agents-skills/market-research-1-0-0",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/imported/openclaw-agents-skills/market-research-1-0-0"
     },
     {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/media/image/image-generate",
@@ -183,24 +372,9 @@
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/misc/find-skills"
     },
     {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/misc/self-improvement",
-      "target": "misc/self-improvement",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/misc/self-improvement"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/misc/veadk-go-skills",
-      "target": "misc/veadk-go-skills",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/misc/veadk-go-skills"
-    },
-    {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/misc/veadk-skills",
       "target": "misc/veadk-skills",
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/misc/veadk-skills"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/misc/web-design-guidelines",
-      "target": "misc/web-design-guidelines",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/misc/web-design-guidelines"
     },
     {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/opencode-controller-1.0.0",
@@ -288,24 +462,9 @@
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/imported/openclaw-agents-skills/social-media-scheduler-1-0-0"
     },
     {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/subagent-driven-development",
-      "target": "subagent-driven-development",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/subagent-driven-development"
-    },
-    {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/supabase-postgres-best-practices",
       "target": "supabase-postgres-best-practices",
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/supabase-postgres-best-practices"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-brainstorming",
-      "target": "superpowers-brainstorming",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/superpowers-brainstorming"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-executing-plans",
-      "target": "superpowers-executing-plans",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/superpowers-executing-plans"
     },
     {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-raw/skills/brainstorming",
@@ -343,21 +502,6 @@
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/superpowers-raw/skills/subagent-driven-development"
     },
     {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-raw/skills/systematic-debugging",
-      "target": "superpowers-raw/skills/systematic-debugging",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/superpowers-raw/skills/systematic-debugging"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-raw/skills/test-driven-development",
-      "target": "superpowers-raw/skills/test-driven-development",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/superpowers-raw/skills/test-driven-development"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-raw/skills/using-git-worktrees",
-      "target": "superpowers-raw/skills/using-git-worktrees",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/superpowers-raw/skills/using-git-worktrees"
-    },
-    {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-raw/skills/using-superpowers",
       "target": "superpowers-raw/skills/using-superpowers",
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/superpowers-raw/skills/using-superpowers"
@@ -366,11 +510,6 @@
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-raw/skills/verification-before-completion",
       "target": "superpowers-raw/skills/verification-before-completion",
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/superpowers-raw/skills/verification-before-completion"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-raw/skills/writing-plans",
-      "target": "superpowers-raw/skills/writing-plans",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/superpowers-raw/skills/writing-plans"
     },
     {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/superpowers-raw/skills/writing-skills",
@@ -408,11 +547,6 @@
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/tushare"
     },
     {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/ui-ux-pro-max-0.1.0",
-      "target": "imported/openclaw-agents-skills/ui-ux-pro-max-0-1-0",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/imported/openclaw-agents-skills/ui-ux-pro-max-0-1-0"
-    },
-    {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/using-git-worktrees",
       "target": "using-git-worktrees",
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/using-git-worktrees"
@@ -426,16 +560,6 @@
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/web-design-guidelines",
       "target": "web-design-guidelines",
       "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/web-design-guidelines"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/writing-plans-0.1.0",
-      "target": "imported/openclaw-agents-skills/writing-plans-0-1-0",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/imported/openclaw-agents-skills/writing-plans-0-1-0"
-    },
-    {
-      "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-agents-skills/writing-plans-0.1.0-backup",
-      "target": "imported/openclaw-agents-skills/writing-plans-0-1-0-backup",
-      "reason": "collision: /root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/skills/imported/openclaw-agents-skills/writing-plans-0-1-0-backup"
     },
     {
       "draft": "/root/.openclaw/workspace_coder/autoskill-agentsmd-skillbank/SkillBank/drafts/openclaw-workspace-skills/github-cli",
@@ -454,8 +578,8 @@
     }
   ],
   "stats": {
-    "promoted": 0,
+    "promoted": 62,
     "failed": 0,
-    "collisions": 90
+    "collisions": 65
   }
 }
