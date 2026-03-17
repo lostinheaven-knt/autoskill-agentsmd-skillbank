@@ -22,18 +22,20 @@ Configuration (env)
   - OPENAI_BASE_URL (or DEEPSEEK_BASE_URL)
   - OPENAI_MODEL (or DEEPSEEK_MODEL)
 
-Defaults
-- If DEEPSEEK_* is present and OPENAI_* is not, we default model to "deepseek-chat".
-- Otherwise default model is "gpt-4o-mini".
-
-Safety
-- The model is instructed to avoid claiming API integrations or access.
-- The output must be concise and concrete (checkable steps, failure modes).
+Notes about providers
+- DeepSeek exposes an OpenAI-compatible Chat Completions endpoint.
+  This script uses chat.completions + JSON output to maximize compatibility.
 
 Usage
+  # Option A: export env vars in shell
   python scripts/llm_fill_drafts.py --apply
-  python scripts/llm_fill_drafts.py --limit 10 --apply
-  python scripts/llm_fill_drafts.py --only openclaw-agents-skills/social-content-generator-0.1.0
+
+  # Option B: load from an env file (KEY=VALUE lines)
+  python scripts/llm_fill_drafts.py --env-file ~/.openclaw/workspace_tester/.secrets.env --apply
+
+  # Target one skill
+  python scripts/llm_fill_drafts.py --env-file ~/.openclaw/workspace_tester/.secrets.env \
+    --only openclaw-agents-skills/social-content-generator-0.1.0 --apply
 """
 
 from __future__ import annotations
@@ -72,6 +74,23 @@ class FillResult:
     notes: List[str]
 
 
+def load_env_file(path: str) -> None:
+    p = Path(path).expanduser()
+    if not p.exists():
+        raise SystemExit(f"env file not found: {p}")
+    for raw in p.read_text(encoding="utf-8", errors="replace").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        if "=" not in line:
+            continue
+        k, v = line.split("=", 1)
+        k = k.strip()
+        v = v.strip().strip('"').strip("'")
+        if k and k not in os.environ:
+            os.environ[k] = v
+
+
 def read_text(p: Path) -> str:
     return p.read_text(encoding="utf-8", errors="replace")
 
@@ -85,26 +104,6 @@ def extract_title(text: str) -> str:
         if line.startswith("# "):
             return line[2:].strip() or "Untitled Skill"
     return "Untitled Skill"
-
-
-def section_body(text: str, section: str) -> str:
-    pat = re.compile(r"^##\s+" + re.escape(section) + r"\s*$", re.IGNORECASE | re.MULTILINE)
-    m = pat.search(text)
-    if not m:
-        return ""
-    start = m.end()
-    m2 = re.search(r"^##\s+.+$", text[start:], flags=re.MULTILINE)
-    end = start + (m2.start() if m2 else len(text[start:]))
-    return text[start:end].strip("\n")
-
-
-def parse_sections(text: str) -> Dict[str, str]:
-    out: Dict[str, str] = {}
-    for sec in SECTION_ORDER:
-        b = section_body(text, sec)
-        if b:
-            out[sec] = b
-    return out
 
 
 def render_skill(title: str, sections: Dict[str, str]) -> str:
@@ -178,7 +177,6 @@ def pick_model() -> str:
     m = _env_first("OPENAI_MODEL", "DEEPSEEK_MODEL")
     if m:
         return m
-    # If DeepSeek is configured (and OpenAI not), default to deepseek-chat
     if os.getenv("DEEPSEEK_API_KEY") or os.getenv("DEEPSEEK_BASE_URL"):
         return "deepseek-chat"
     return "gpt-4o-mini"
@@ -187,48 +185,49 @@ def pick_model() -> str:
 def call_llm(client: OpenAI, model: str, title: str, draft_text: str, original: Optional[str]) -> Dict[str, str]:
     """Return dict(section->body) with NO TODO placeholders."""
 
-    schema = {
-        "type": "object",
-        "properties": {sec: {"type": "string"} for sec in SECTION_ORDER},
-        "required": SECTION_ORDER,
-        "additionalProperties": False,
-    }
-
     system = (
         "You are an expert skill author.\n"
-        "Your job: fill a SkillBank SKILL.md template with concrete, checkable content.\n"
-        "Rules:\n"
+        "Fill a SkillBank SKILL.md template with concrete, checkable content.\n"
+        "Hard rules:\n"
+        "- Output MUST be valid JSON object (no markdown, no code fences).\n"
+        "- Keys MUST be exactly: " + ", ".join([f'"{k}"' for k in SECTION_ORDER]) + "\n"
         "- Do NOT include the word 'TODO' anywhere.\n"
-        "- Do NOT claim you have access to tools/APIs/integrations. Write steps as what the assistant should do conversationally.\n"
-        "- Keep it short but non-empty: each required section must have meaningful content.\n"
+        "- Do NOT claim you have access to tools/APIs/integrations.\n"
         "- Procedure: 3-7 numbered steps.\n"
-        "- Checks / Failure modes: at least 2 bullets each.\n"
-        "- If original draft content is provided, prefer extracting and summarizing it rather than inventing.\n"
+        "- Checks and Failure modes: at least 2 bullets each.\n"
+        "- Prefer extracting from original draft if provided; otherwise keep content conservative.\n"
     )
 
-    user_payload = {
+    user = {
         "title": title,
         "draft_template": draft_text,
         "original_draft": original or "",
-        "output_instructions": {
-            "format": "json",
-            "schema": schema,
-        },
+        "output": "Return ONLY the JSON object.",
     }
 
-    resp = client.responses.create(
+    resp = client.chat.completions.create(
         model=model,
-        input=[
+        messages=[
             {"role": "system", "content": system},
-            {"role": "user", "content": json.dumps(user_payload, ensure_ascii=False)},
+            {"role": "user", "content": json.dumps(user, ensure_ascii=False)},
         ],
-        response_format={"type": "json_schema", "json_schema": {"name": "skill_sections", "schema": schema}},
+        response_format={"type": "json_object"},
+        temperature=0.2,
     )
 
-    txt = resp.output_text
+    txt = resp.choices[0].message.content
     data = json.loads(txt)
 
-    for k, v in data.items():
+    # validate keys
+    for k in SECTION_ORDER:
+        if k not in data or not isinstance(data[k], str):
+            raise ValueError(f"missing/invalid key: {k}")
+    extra_keys = [k for k in data.keys() if k not in SECTION_ORDER]
+    if extra_keys:
+        raise ValueError(f"extra keys: {extra_keys}")
+
+    for k in SECTION_ORDER:
+        v = data[k]
         if "todo" in v.lower():
             raise ValueError(f"LLM returned TODO in section {k}")
 
@@ -250,7 +249,11 @@ def main() -> None:
         help="Only process a relative path under SkillBank/drafts (e.g. openclaw-agents-skills/social-content-generator-0.1.0)",
     )
     ap.add_argument("--sleep", type=float, default=0.4, help="Sleep between calls (seconds)")
+    ap.add_argument("--env-file", type=str, default="", help="Load env vars from a .env file (KEY=VALUE)")
     args = ap.parse_args()
+
+    if args.env_file:
+        load_env_file(args.env_file)
 
     client = mk_client()
     model = pick_model()
