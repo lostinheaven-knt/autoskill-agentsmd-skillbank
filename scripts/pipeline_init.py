@@ -19,6 +19,7 @@ Safety:
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 from pathlib import Path
 
@@ -43,7 +44,13 @@ def main() -> None:
     ap.add_argument(
         "--llm-fill",
         action="store_true",
-        help="Run LLM fill step to reduce TODO placeholders before promote (requires OPENAI_API_KEY)",
+        help="Run LLM fill step to reduce TODO placeholders before promote (requires API key)",
+    )
+    ap.add_argument(
+        "--env-file",
+        type=str,
+        default="",
+        help="Optional .env file (KEY=VALUE) to load secrets for the LLM fill step",
     )
     ap.add_argument(
         "--llm-limit",
@@ -67,11 +74,27 @@ def main() -> None:
 
     # Phase B1.5: LLM fill drafts (optional)
     if args.llm_fill:
+        # If secrets are provided as an env file, load them for this process (and child processes will inherit).
+        if args.env_file:
+            env_path = Path(args.env_file).expanduser()
+            if env_path.exists():
+                for raw in env_path.read_text(encoding="utf-8", errors="replace").splitlines():
+                    line = raw.strip()
+                    if not line or line.startswith("#") or "=" not in line:
+                        continue
+                    k, v = line.split("=", 1)
+                    k = k.strip()
+                    v = v.strip().strip('"').strip("'")
+                    if k and k not in os.environ:
+                        os.environ[k] = v
+
         cmd = ["python", str(REPO_ROOT / "scripts" / "llm_fill_drafts.py")]
         if args.apply:
             cmd.append("--apply")
         if args.llm_limit and args.llm_limit > 0:
             cmd += ["--limit", str(args.llm_limit)]
+        if args.env_file:
+            cmd += ["--env-file", args.env_file]
         run(cmd)
 
     # Phase B2: promote
