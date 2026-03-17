@@ -246,7 +246,12 @@ def call_llm(client: OpenAI, model: str, title: str, draft_text: str, original: 
             if not items:
                 return ""
             if section == "Procedure":
-                return "\n".join([f"{i+1}. {s}" for i, s in enumerate(items)])
+                cleaned = []
+                for s in items:
+                    # avoid double numbering like "1. 1. ..."
+                    s2 = re.sub(r"^\s*\d+\.\s+", "", s).strip()
+                    cleaned.append(s2 or s)
+                return "\n".join([f"{i+1}. {s}" for i, s in enumerate(cleaned)])
             return "\n".join([f"- {s}" for s in items])
 
         if isinstance(v, dict):
