@@ -225,9 +225,49 @@ def iter_draft_skill_dirs() -> List[Path]:
 
 
 def copy_leaf_to_curated(draft_dir: Path, target_leaf: str, apply: bool) -> Tuple[bool, str]:
+    """Copy a draft leaf into curated tree.
+
+    Collision policy (upgrade-safe):
+    - Default: do not overwrite existing curated leaves.
+    - Exception: if the existing curated SKILL.md is clearly placeholder-heavy (TODO gate fails)
+      AND the draft passes the quality gate, we allow an in-place upgrade.
+      We first move the old curated leaf to SkillBank/drafts/_replaced/<timestamp>/<target_leaf>/ for traceability.
+    """
+
     dst_dir = CURATED_ROOT / target_leaf
     if dst_dir.exists():
+        # Decide whether to upgrade
+        dst_skill = dst_dir / "SKILL.md"
+        src_skill = draft_dir / "SKILL.md"
+
+        # If existing curated fails placeholder gate but new draft passes full quality gate, upgrade.
+        if dst_skill.exists() and src_skill.exists():
+            dst_text = read_text(dst_skill)
+            src_text = read_text(src_skill)
+
+            ok_dst, _reasons_dst = placeholder_gate(dst_text)
+            ok_src, _reasons_src = placeholder_gate(src_text)
+
+            if (not ok_dst) and ok_src:
+                msg = f"upgrade: replacing placeholder-heavy curated leaf {dst_dir}"
+                if apply:
+                    import time
+
+                    stamp = time.strftime("%Y%m%d-%H%M%S")
+                    backup = (DRAFTS_ROOT / "_replaced" / stamp / target_leaf).resolve()
+                    backup.parent.mkdir(parents=True, exist_ok=True)
+                    if backup.exists():
+                        shutil.rmtree(backup)
+                    shutil.copytree(dst_dir, backup, symlinks=True)
+
+                    # Replace in place
+                    shutil.rmtree(dst_dir)
+                    dst_dir.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copytree(draft_dir, dst_dir, symlinks=True)
+                return True, msg
+
         return False, f"collision: {dst_dir}"
+
     if apply:
         dst_dir.parent.mkdir(parents=True, exist_ok=True)
         shutil.copytree(draft_dir, dst_dir, symlinks=True)
