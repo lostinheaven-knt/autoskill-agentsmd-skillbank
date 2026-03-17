@@ -10,8 +10,8 @@
     "requests": ">=2.28.0"
   },
   "config": {
-    "app_id": "<REDACTED_FEISHU_APP_ID>",
-    "app_secret": "<REDACTED_FEISHU_APP_SECRET>",
+    "app_id": "<FEISHU_APP_ID>",
+    "app_secret": "<FEISHU_APP_SECRET>",
     "default_receive_id": "ou_cffdc0ae4ef4e314a9b7e3133c6d817d",
     "default_receive_id_type": "open_id"
   },

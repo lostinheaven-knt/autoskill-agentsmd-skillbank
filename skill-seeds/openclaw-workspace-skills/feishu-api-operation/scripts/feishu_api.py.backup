@@ -14,8 +14,8 @@ import sys
 from pathlib import Path
 
 # 配置信息（从环境变量或openclaw.json获取）
-APP_ID = os.getenv("FEISHU_APP_ID", "<REDACTED_FEISHU_APP_ID>")
-APP_SECRET = os.getenv("FEISHU_APP_SECRET", "<REDACTED_FEISHU_APP_SECRET>")
+APP_ID = os.getenv("FEISHU_APP_ID")  # required
+APP_SECRET = os.getenv("FEISHU_APP_SECRET")  # required
 DEFAULT_RECEIVE_ID = "ou_cffdc0ae4ef4e314a9b7e3133c6d817d"  # 菜头的open_id
 DEFAULT_RECEIVE_ID_TYPE = "open_id"
 
