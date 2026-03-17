@@ -13,6 +13,10 @@ Principles:
 
 This is a scaffolding normalizer, not a content generator.
 
+IMPORTANT:
+- If the source draft has lots of non-template sections (e.g. a long guide), we must NOT drop that content.
+  We preserve the original full text in an appendix block so the pipeline never loses information.
+
 """
 
 from __future__ import annotations
@@ -58,8 +62,9 @@ def split_sections(text: str) -> Dict[str, str]:
 
     Returns dict: section_name -> body (without the heading line).
     Content before first recognized section is ignored (except title).
+
+    NOTE: This is intentionally strict. Any non-template sections are preserved later in an appendix.
     """
-    # Find all headings
     lines = text.splitlines()
     bodies: Dict[str, List[str]] = {k: [] for k in SECTION_ORDER}
 
@@ -68,7 +73,6 @@ def split_sections(text: str) -> Dict[str, str]:
         m = re.match(r"^##\s+(.+?)\s*$", line)
         if m:
             name = m.group(1).strip()
-            # normalize to canonical section name
             canon = None
             for sec in SECTION_ORDER:
                 if sec.lower() == name.lower():
@@ -85,23 +89,20 @@ def split_sections(text: str) -> Dict[str, str]:
 def ensure_bullet(body: str, default_bullet: str) -> Tuple[str, bool]:
     if re.search(r"^\s*-\s+.+$", body, flags=re.MULTILINE):
         return body, False
-    # add a bullet
     new = (body.strip() + "\n" if body.strip() else "") + f"- {default_bullet}\n"
     return new.strip("\n"), True
 
 
 def ensure_numbered_steps(body: str, min_steps: int = 3) -> Tuple[str, bool]:
     steps = re.findall(r"^\s*\d+\.\s+.+$", body, flags=re.MULTILINE)
-    changed = False
     out = body.strip("\n")
-    # count existing leading numbered list items
     n = len(steps)
     if n >= min_steps:
         return out, False
 
-    # Append placeholders
     if out.strip():
         out += "\n"
+    changed = False
     for i in range(n + 1, min_steps + 1):
         out += f"{i}. TODO: refine this step with concrete actions and parameters.\n"
         changed = True
@@ -119,13 +120,34 @@ def render(title: str, sections: Dict[str, str]) -> str:
     return "\n".join(lines).rstrip() + "\n"
 
 
+def has_unrecognized_sections(text: str) -> bool:
+    for line in text.splitlines():
+        m = re.match(r"^##\s+(.+?)\s*$", line)
+        if not m:
+            continue
+        name = m.group(1).strip()
+        if all(name.lower() != s.lower() for s in SECTION_ORDER):
+            return True
+    return False
+
+
+def append_original(text: str, original: str) -> str:
+    # Preserve full original text verbatim for traceability & manual recovery.
+    # Use a fenced block so Markdown remains readable.
+    out = text.rstrip() + "\n\n"
+    out += "<!-- ORIGINAL_DRAFT_PRESERVED:START -->\n"
+    out += "## Appendix: Original draft (verbatim)\n\n"
+    out += "```markdown\n" + original.rstrip("\n") + "\n```\n"
+    out += "<!-- ORIGINAL_DRAFT_PRESERVED:END -->\n"
+    return out
+
+
 def autofix_text(text: str) -> Tuple[str, bool, List[str]]:
     notes: List[str] = []
     title = extract_title(text)
     sections = split_sections(text)
     changed = False
 
-    # Ensure required sections exist with minimal placeholders
     if "Purpose" not in sections:
         sections["Purpose"] = "TODO: Describe the purpose in 1-2 sentences."
         notes.append("add Purpose")
@@ -177,26 +199,26 @@ def autofix_text(text: str) -> Tuple[str, bool, List[str]]:
         notes.append("add Version / Changelog")
         changed = True
 
-    # Preserve existing non-empty optional sections if present
-    for opt in ["Purpose", "When to use", "Inputs / Preconditions", "Procedure", "Checks", "Failure modes", "Examples", "Version / Changelog"]:
+    for opt in [
+        "Purpose",
+        "When to use",
+        "Inputs / Preconditions",
+        "Procedure",
+        "Checks",
+        "Failure modes",
+        "Examples",
+        "Version / Changelog",
+    ]:
         if opt in sections:
             sections[opt] = sections[opt].strip("\n")
 
     new_text = render(title, sections)
-    if new_text != text:
-        # If structure parser dropped some content (unrecognized sections), keep original appended.
-        # We do this conservatively: only if original has headings we didn't recognize.
-        extra = []
-        for line in text.splitlines():
-            if re.match(r"^##\s+", line):
-                name = re.sub(r"^##\s+", "", line).strip()
-                if all(name.lower() != s.lower() for s in SECTION_ORDER):
-                    extra.append(line)
-        if extra:
-            new_text += "\n<!-- ORIGINAL_EXTRA_SECTIONS_DETECTED -->\n"
-            new_text += "<!-- Please review original draft for additional headings not covered by the template. -->\n"
-            notes.append("extra sections detected")
-            changed = True
+
+    # If the original draft contains non-template sections, DO NOT drop them.
+    if has_unrecognized_sections(text):
+        new_text = append_original(new_text, text)
+        notes.append("preserve original draft in appendix")
+        changed = True
 
     return new_text, changed, notes
 

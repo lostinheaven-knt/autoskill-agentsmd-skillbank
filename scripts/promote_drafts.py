@@ -27,6 +27,8 @@ Quality gate (v0.1, lightweight):
 - Procedure has >= 3 numbered steps ("1.")
 - When NOT to use has >= 1 bullet ("- ")
 - Checks has >= 1 bullet
+- NEW: Reject placeholder-only drafts (TODO ratio/threshold), so TODO scaffolds never pollute curated tree.
+  NOTE: TODO lines are fine in small amounts; we only block when they dominate.
 
 Target path heuristic (deterministic):
 - Use existing leaf path if the draft already sits under a goal tree that matches our naming rules.
@@ -55,7 +57,7 @@ import re
 import shutil
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Tuple
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 DRAFTS_ROOT = REPO_ROOT / "SkillBank" / "drafts"
@@ -74,6 +76,12 @@ REQUIRED_SECTIONS = [
 
 NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
+# Placeholder blocking (tuneable, conservative)
+# - If TODO lines are >= this absolute number, block.
+# - Or if TODO ratio among content-like lines exceeds ratio, block.
+TODO_MAX_LINES = 10
+TODO_MAX_RATIO = 0.25
+
 
 @dataclass
 class GateResult:
@@ -89,25 +97,21 @@ def has_required_sections(text: str) -> Tuple[bool, List[str]]:
     low = text.lower()
     missing = []
     for sec in REQUIRED_SECTIONS:
-        # accept "## Purpose" etc
         if re.search(r"^#+\s+" + re.escape(sec) + r"\s*$", low, flags=re.MULTILINE) is None:
             missing.append(f"missing section: {sec}")
     return (len(missing) == 0, missing)
 
 
 def count_numbered_steps(text: str) -> int:
-    # count lines like "1. xxx"
     return len(re.findall(r"^\s*\d+\.\s+.+$", text, flags=re.MULTILINE))
 
 
 def section_body(text: str, section: str) -> str:
-    # naive markdown section extractor
     pattern = re.compile(r"^#+\s+" + re.escape(section) + r"\s*$", re.IGNORECASE | re.MULTILINE)
     m = pattern.search(text)
     if not m:
         return ""
     start = m.end()
-    # next heading
     m2 = re.search(r"^#+\s+.+$", text[start:], flags=re.MULTILINE)
     end = start + (m2.start() if m2 else len(text[start:]))
     return text[start:end]
@@ -115,6 +119,51 @@ def section_body(text: str, section: str) -> str:
 
 def count_bullets(body: str) -> int:
     return len(re.findall(r"^\s*-\s+.+$", body, flags=re.MULTILINE))
+
+
+def placeholder_gate(text: str) -> Tuple[bool, List[str]]:
+    """Block placeholder-heavy drafts.
+
+    We count TODO lines only in the main body (anything inside code fences is ignored),
+    and only for content-like lines (skip headings/empty/comments).
+    """
+
+    lines = text.splitlines()
+    in_fence = False
+    todo = 0
+    content = 0
+
+    for ln in lines:
+        if ln.strip().startswith("```"):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+
+        s = ln.strip()
+        if not s:
+            continue
+        if s.startswith("<!--"):
+            continue
+        if s.startswith("#"):
+            continue
+
+        # content-like
+        content += 1
+        if "todo" in s.lower():
+            todo += 1
+
+    if content == 0:
+        return False, ["empty content"]
+
+    ratio = todo / max(1, content)
+    reasons = []
+    if todo >= TODO_MAX_LINES:
+        reasons.append(f"too many TODO lines ({todo} >= {TODO_MAX_LINES})")
+    if ratio > TODO_MAX_RATIO:
+        reasons.append(f"TODO ratio too high ({ratio:.0%} > {TODO_MAX_RATIO:.0%})")
+
+    return (len(reasons) == 0), reasons
 
 
 def quality_gate(skill_md: Path) -> GateResult:
@@ -137,6 +186,10 @@ def quality_gate(skill_md: Path) -> GateResult:
     if checks_bullets < 1:
         reasons.append("Checks bullets < 1")
 
+    ok2, reasons2 = placeholder_gate(text)
+    if not ok2:
+        reasons.extend(reasons2)
+
     return GateResult(len(reasons) == 0, reasons)
 
 
@@ -153,17 +206,14 @@ def valid_path_parts(parts: List[str]) -> bool:
 
 
 def propose_target_leaf(draft_dir: Path) -> str:
-    # draft_dir like SkillBank/drafts/<seed_name>/<relpath>
     rel = draft_dir.relative_to(DRAFTS_ROOT)
     parts = list(rel.parts)
     seed_name = parts[0]
     orig_parts = parts[1:]
 
-    # If orig_parts look like a classification already, keep it.
     if orig_parts and valid_path_parts(orig_parts):
         return "/".join(orig_parts)
 
-    # fallback
     return f"imported/{slugify(seed_name)}/{slugify('/'.join(orig_parts) or draft_dir.name)}"
 
 
@@ -231,10 +281,10 @@ def main() -> None:
 
     report["stats"] = {"promoted": promoted, "failed": failed, "collisions": collisions}
 
-    # write meta report
-    (META_ROOT / "drafts_report.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    (META_ROOT / "drafts_report.json").write_text(
+        json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
 
-    # write human reports
     (DRAFTS_ROOT / "REPORT.md").write_text("\n".join(fail_lines) + "\n", encoding="utf-8")
     (DRAFTS_ROOT / "MERGE_QUEUE.md").write_text("\n".join(merge_queue_lines) + "\n", encoding="utf-8")
 
