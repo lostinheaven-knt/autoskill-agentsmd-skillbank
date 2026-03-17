@@ -17,9 +17,14 @@ Behavior
 - Keeps the original appendix as-is for traceability.
 
 Configuration (env)
-- OPENAI_API_KEY (required)
-- OPENAI_BASE_URL (optional)
-- OPENAI_MODEL (optional, default gpt-4o-mini)
+- Preferred (OpenAI-compatible):
+  - OPENAI_API_KEY (or DEEPSEEK_API_KEY)
+  - OPENAI_BASE_URL (or DEEPSEEK_BASE_URL)
+  - OPENAI_MODEL (or DEEPSEEK_MODEL)
+
+Defaults
+- If DEEPSEEK_* is present and OPENAI_* is not, we default model to "deepseek-chat".
+- Otherwise default model is "gpt-4o-mini".
 
 Safety
 - The model is instructed to avoid claiming API integrations or access.
@@ -150,14 +155,33 @@ def needs_fill(text: str) -> bool:
     return todo >= 5 or ratio > 0.15
 
 
+def _env_first(*names: str) -> Optional[str]:
+    for n in names:
+        v = os.getenv(n)
+        if v:
+            return v
+    return None
+
+
 def mk_client() -> OpenAI:
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = _env_first("OPENAI_API_KEY", "DEEPSEEK_API_KEY")
     if not api_key:
-        raise SystemExit("OPENAI_API_KEY missing; cannot run LLM fill")
-    base_url = os.getenv("OPENAI_BASE_URL")
+        raise SystemExit("Missing OPENAI_API_KEY/DEEPSEEK_API_KEY; cannot run LLM fill")
+
+    base_url = _env_first("OPENAI_BASE_URL", "DEEPSEEK_BASE_URL")
     if base_url:
         return OpenAI(api_key=api_key, base_url=base_url)
     return OpenAI(api_key=api_key)
+
+
+def pick_model() -> str:
+    m = _env_first("OPENAI_MODEL", "DEEPSEEK_MODEL")
+    if m:
+        return m
+    # If DeepSeek is configured (and OpenAI not), default to deepseek-chat
+    if os.getenv("DEEPSEEK_API_KEY") or os.getenv("DEEPSEEK_BASE_URL"):
+        return "deepseek-chat"
+    return "gpt-4o-mini"
 
 
 def call_llm(client: OpenAI, model: str, title: str, draft_text: str, original: Optional[str]) -> Dict[str, str]:
@@ -201,11 +225,9 @@ def call_llm(client: OpenAI, model: str, title: str, draft_text: str, original: 
         response_format={"type": "json_schema", "json_schema": {"name": "skill_sections", "schema": schema}},
     )
 
-    # OpenAI Responses API returns output_text with JSON when using json_schema
     txt = resp.output_text
     data = json.loads(txt)
 
-    # hard guard
     for k, v in data.items():
         if "todo" in v.lower():
             raise ValueError(f"LLM returned TODO in section {k}")
@@ -231,7 +253,7 @@ def main() -> None:
     args = ap.parse_args()
 
     client = mk_client()
-    model = os.getenv("OPENAI_MODEL") or "gpt-4o-mini"
+    model = pick_model()
 
     files = iter_draft_skill_md()
     if args.only:
@@ -254,7 +276,6 @@ def main() -> None:
 
         sections = call_llm(client, model, title, text, original)
 
-        # preserve appendix (if any) by taking everything from ORIGINAL_DRAFT_PRESERVED:START onwards
         appendix = ""
         m = re.search(r"(<!--\s*ORIGINAL_DRAFT_PRESERVED:START\s*-->.*)$", text, flags=re.DOTALL)
         if m:
@@ -265,7 +286,7 @@ def main() -> None:
         if changed and args.apply:
             write_text(p, new_text)
 
-        results.append(FillResult(str(p), changed, ["filled by LLM"]))
+        results.append(FillResult(str(p), changed, [f"filled by LLM ({model})"]))
         n += 1
         if args.limit and n >= args.limit:
             break
