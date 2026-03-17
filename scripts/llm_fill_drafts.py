@@ -183,18 +183,23 @@ def pick_model() -> str:
 
 
 def call_llm(client: OpenAI, model: str, title: str, draft_text: str, original: Optional[str]) -> Dict[str, str]:
-    """Return dict(section->body) with NO TODO placeholders."""
+    """Return dict(section->body) with NO TODO placeholders.
+
+    Provider note:
+    - Some OpenAI-compatible providers may return lists/dicts even in json_object mode.
+      We normalize those into markdown-ish strings.
+    """
 
     system = (
         "You are an expert skill author.\n"
         "Fill a SkillBank SKILL.md template with concrete, checkable content.\n"
         "Hard rules:\n"
         "- Output MUST be valid JSON object (no markdown, no code fences).\n"
-        "- Keys MUST be exactly: " + ", ".join([f'"{k}"' for k in SECTION_ORDER]) + "\n"
+        "- Keys MUST be exactly: " + ", ".join([f'\"{k}\"' for k in SECTION_ORDER]) + "\n"
         "- Do NOT include the word 'TODO' anywhere.\n"
         "- Do NOT claim you have access to tools/APIs/integrations.\n"
-        "- Procedure: 3-7 numbered steps.\n"
-        "- Checks and Failure modes: at least 2 bullets each.\n"
+        "- Procedure: 3-7 numbered steps (you may return a list).\n"
+        "- Checks and Failure modes: at least 2 bullets each (you may return a list).\n"
         "- Prefer extracting from original draft if provided; otherwise keep content conservative.\n"
     )
 
@@ -218,20 +223,88 @@ def call_llm(client: OpenAI, model: str, title: str, draft_text: str, original: 
     txt = resp.choices[0].message.content
     data = json.loads(txt)
 
-    # validate keys
+    # validate keys exist
     for k in SECTION_ORDER:
-        if k not in data or not isinstance(data[k], str):
-            raise ValueError(f"missing/invalid key: {k}")
+        if k not in data:
+            raise ValueError(f"missing key: {k}")
     extra_keys = [k for k in data.keys() if k not in SECTION_ORDER]
     if extra_keys:
         raise ValueError(f"extra keys: {extra_keys}")
 
+    def norm_value(section: str, v) -> str:
+        if isinstance(v, str):
+            return v.strip("\n")
+
+        if isinstance(v, list):
+            items: List[str] = []
+            for it in v:
+                if it is None:
+                    continue
+                s = str(it).strip()
+                if s:
+                    items.append(s)
+            if not items:
+                return ""
+            if section == "Procedure":
+                return "\n".join([f"{i+1}. {s}" for i, s in enumerate(items)])
+            return "\n".join([f"- {s}" for s in items])
+
+        if isinstance(v, dict):
+            if section == "Examples":
+                out_lines: List[str] = []
+                for kk, vv in v.items():
+                    kk = str(kk).strip()
+                    if not kk:
+                        continue
+                    out_lines.append(f"### {kk}")
+                    if isinstance(vv, dict):
+                        for k2, v2 in vv.items():
+                            s2 = str(v2).strip()
+                            if s2:
+                                out_lines.append(f"- {k2}: {s2}")
+                    elif isinstance(vv, list):
+                        for x in vv:
+                            sx = str(x).strip()
+                            if sx:
+                                out_lines.append(sx)
+                    else:
+                        s = str(vv).strip()
+                        if s:
+                            out_lines.append(s)
+                    out_lines.append("")
+                return "\n".join(out_lines).strip()
+
+            out_lines: List[str] = []
+            for kk, vv in v.items():
+                kk = str(kk).strip()
+                if not kk:
+                    continue
+                if isinstance(vv, list):
+                    out_lines.append(f"- {kk}:")
+                    for x in vv:
+                        sx = str(x).strip()
+                        if sx:
+                            out_lines.append(f"  - {sx}")
+                else:
+                    s = str(vv).strip()
+                    if s:
+                        out_lines.append(f"- {kk}: {s}")
+            return "\n".join(out_lines).strip()
+
+        return str(v).strip()
+
+    out: Dict[str, str] = {}
     for k in SECTION_ORDER:
-        v = data[k]
+        out[k] = norm_value(k, data.get(k))
+
+    for k in SECTION_ORDER:
+        v = out[k]
+        if not isinstance(v, str) or not v.strip():
+            raise ValueError(f"empty/invalid value for key: {k}")
         if "todo" in v.lower():
             raise ValueError(f"LLM returned TODO in section {k}")
 
-    return {k: data[k].strip("\n") for k in SECTION_ORDER}
+    return out
 
 
 def iter_draft_skill_md() -> List[Path]:
