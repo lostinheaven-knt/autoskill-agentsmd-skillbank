@@ -60,6 +60,10 @@ def main() -> None:
     )
     args = ap.parse_args()
 
+    # Phase 0: secret scan gate (defense-in-depth)
+    # We scan seeds + drafts + curated trees to prevent accidental credential commits.
+    run(["python", str(REPO_ROOT / "scripts" / "secret_scan.py"), "--roots", "skill-seeds", "SkillBank"]) 
+
     # Phase A: import
     cmd = ["python", str(REPO_ROOT / "scripts" / "import_seeds_to_drafts.py"), "--seeds", *args.seeds]
     if args.force_import:
