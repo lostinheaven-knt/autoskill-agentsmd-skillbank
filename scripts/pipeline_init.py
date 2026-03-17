@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Bulk pipeline: seeds -> drafts -> (auto-fix) -> promote -> dedupe/merge -> report -> reindex.
+"""Bulk pipeline: seeds -> drafts -> (auto-fix) -> (LLM fill) -> promote -> dedupe/merge -> report -> reindex.
 
 Initialization-oriented batch job:
 - ingest seed skills into drafts
 - normalize draft SKILL.md structure (autofix)
+- fill placeholder-heavy drafts using LLM (llm_fill_drafts)
 - promote passing drafts into curated SkillBank/skills
 - deduplicate + merge similar curated leaves automatically (keep canonical, move duplicates)
 - regenerate AGENTS.md DocIndex
@@ -39,6 +40,17 @@ def main() -> None:
     )
     ap.add_argument("--force-import", action="store_true", help="Overwrite existing drafts during import")
     ap.add_argument("--min-merge-group", type=int, default=2, help="Only merge groups with at least N leaves")
+    ap.add_argument(
+        "--llm-fill",
+        action="store_true",
+        help="Run LLM fill step to reduce TODO placeholders before promote (requires OPENAI_API_KEY)",
+    )
+    ap.add_argument(
+        "--llm-limit",
+        type=int,
+        default=0,
+        help="Limit number of draft files processed by LLM fill (0 = no limit)",
+    )
     args = ap.parse_args()
 
     # Phase A: import
@@ -52,6 +64,15 @@ def main() -> None:
     if args.apply:
         cmd.append("--apply")
     run(cmd)
+
+    # Phase B1.5: LLM fill drafts (optional)
+    if args.llm_fill:
+        cmd = ["python", str(REPO_ROOT / "scripts" / "llm_fill_drafts.py")]
+        if args.apply:
+            cmd.append("--apply")
+        if args.llm_limit and args.llm_limit > 0:
+            cmd += ["--limit", str(args.llm_limit)]
+        run(cmd)
 
     # Phase B2: promote
     cmd = ["python", str(REPO_ROOT / "scripts" / "promote_drafts.py")]
