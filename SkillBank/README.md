@@ -1,16 +1,19 @@
 # SkillBank
 
-SkillBank is the governed workspace skill library.
+SkillBank is the governed skill surface for this repository.
+
+It is **not** a dump of everything the repo has ever seen.
+If something is uncertain, private-ish, TODO-heavy, or historically interesting but not routing-worthy, it belongs in `seed_openclaw_skills/`, `drafts/`, or `.trash/` — not in `skills/`.
 
 ## Directory roles
 
 - `skills/` — **production-grade skills**
-  - Use this for actively maintained, trigger-ready skills.
+  - Actively maintained, trigger-ready, routing-worthy leaves only.
   - Each skill should have a focused responsibility, clean frontmatter, clear workflow, and minimal ambiguity.
 
 - `seed_openclaw_skills/` — **raw seed skills / source material**
-  - Use this as the small intake area for imported, drafted, or partially adapted skills.
-  - These entries may be useful, but they are not automatically treated as production quality.
+  - Small intake area for imported, drafted, or partially adapted skills.
+  - Useful as source material, but not automatically treated as production quality.
   - Keep this set small, generic, and sanitized.
 
 - `drafts/` — candidates under active review
@@ -28,6 +31,14 @@ A production-grade skill should usually include:
 5. references/scripts/assets only when they add real value
 6. a verification path where applicable
 
+For the detailed promotion bar, see:
+
+- `meta/production-skill-checklist.md`
+
+For seed labeling rules, see:
+
+- `meta/seed-status-conventions.md`
+
 ## Recommended workflow
 
 1. Capture/import rough material into `seed_openclaw_skills/`
@@ -42,6 +53,8 @@ The routing table (DocIndex) is generated and injected into `AGENTS.md` between:
 
 - `<!-- SKILLBANK_INDEX:START -->`
 - `<!-- SKILLBANK_INDEX:END -->`
+
+Only `skills/` participates in active routing.
 
 ## Practical rule
 

@@ -12,6 +12,29 @@ This repo demonstrates how to:
 It is **not** positioned as a bulk auto-promotion pipeline for turning arbitrary seeds into production skills.
 Legacy pipeline scripts are retained only under `scripts/_legacy/` for historical reference.
 
+## Start here
+
+If you only read three things, read these in order:
+
+1. `docs/migration-notes-2026-03-31.md` — what changed and why
+2. `SkillBank/README.md` — how to read the current directory model
+3. `TECHNICAL_SPEC.md` — the repository rules and routing contract
+
+For the full implementation plan used during the rebuild, see:
+
+- `docs/skillbank-governance-v2-implementation.md`
+- `docs/implementation-checklist.md`
+
+## Current state
+
+The repository has already been pruned away from the old pipeline-first model.
+The intended steady-state is now:
+
+- `SkillBank/skills/` = small, trusted production routing surface
+- `SkillBank/seed_openclaw_skills/` = small, explicit source-material sample set
+- `SkillBank/.trash/` = retired and isolated material kept for traceability
+- `scripts/_legacy/` = museum, not highway
+
 ## Key idea
 
 > Prefer retrieval-led reasoning over pre-training-led reasoning.
@@ -41,6 +64,10 @@ scripts/
 
 tests/
   test_build_agents_md_index.py
+  test_detectors.py
+  test_inventory.py
+  test_production_validation.py
+  test_seed_validation.py
 ```
 
 ## Current governance direction
@@ -50,44 +77,40 @@ tests/
 - Do not auto-merge or auto-promote aggressively
 - Prefer inventory, validation, sanitization, and reviewed promotion
 
-## Generate / inject DocIndex
+## Common commands
+
+Generate / inject DocIndex:
 
 ```bash
 python scripts/build_agents_md_index.py --write
 ```
 
-Print index only:
-
-```bash
-python scripts/build_agents_md_index.py --print
-```
-
-## Inventory report
+Generate inventory report:
 
 ```bash
 python scripts/review_inventory.py --write
 ```
 
-## Validate production tree
+Validate production tree:
 
 ```bash
 python scripts/validate_production_skills.py
 ```
 
-## Validate seed status
+Validate seed status:
 
 ```bash
 python scripts/validate_seed_status.py
 ```
 
-## Prune seed examples
+Prune seed examples:
 
 ```bash
 python scripts/prune_seed_examples.py --dry-run
 python scripts/prune_seed_examples.py --apply
 ```
 
-## Tests
+Run tests:
 
 ```bash
 pytest -q
