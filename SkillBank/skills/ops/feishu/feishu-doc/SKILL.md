@@ -1,35 +1,67 @@
-# Feishu Document Tool
+---
+name: feishu-doc
+description: Read, write, append, structure, and update Feishu documents/docx pages. Use when the user mentions Feishu docs, docx links, editing cloud docs, inserting tables/images/files, or reading structured document content.
+---
 
-## Purpose
-TODO: Describe the purpose in 1-2 sentences.
+# Feishu Doc
+
+Use this skill for Feishu **document content operations**.
 
 ## When to use
-- TODO: specify scenarios where this skill applies.
 
-## When NOT to use
-- TODO: specify at least one situation where this skill should NOT be used.
+Trigger when the user wants to:
+- read a Feishu doc/docx
+- edit or rewrite a doc
+- append content to a doc
+- inspect structured content like tables/images/blocks
+- create a new doc
+- insert tables, images, or file attachments into a doc
 
-## Inputs / Preconditions
-- Required info: TODO
-- Assumptions: TODO
-- Constraints: TODO
+Do **not** use this skill for:
+- folder / drive management → use `feishu-drive`
+- wiki navigation / moving wiki nodes → use `feishu-wiki`
+- sharing / collaborator permissions → use `feishu-perm`
 
-## Procedure
-1. TODO: refine this step with concrete actions and parameters.
+## Core workflow
 
-## Checks
-- TODO: add at least one verifiable check.
+1. Extract `doc_token` from a `/docx/` URL if the user gives a link.
+2. If the task is content inspection, start with `read`.
+3. If the response hints that structured content exists, use `list_blocks`.
+4. For edits, choose the narrowest safe write:
+   - full rewrite → `write`
+   - append → `append`
+   - targeted block change → `update_block`
+   - table/image/file insertion → dedicated actions
+5. After mutation, summarize what changed.
 
-## Failure modes
-- TODO: list at least one failure mode and how to detect it.
+## Recommended task patterns
 
-## Examples
-### Example 1
-TODO
+- **Read document text** → `read`
+- **Read table/image-heavy document** → `read`, then `list_blocks`
+- **Replace whole document** → `write`
+- **Add content to end** → `append`
+- **Edit one known block** → `get_block` / `update_block`
+- **Insert a table** → `create_table` or `create_table_with_values`
+- **Upload image/file** → `upload_image` / `upload_file`
 
-## Version / Changelog
-- v0.1.0: imported (autofix)
+## Gotchas
 
-<!-- ORIGINAL_EXTRA_SECTIONS_DETECTED -->
-<!-- Please review original draft for additional headings not covered by the template. -->
-- merged: auto-dedupe merged similar skills
+- Markdown tables are **not** supported by `write`; use docx table actions instead.
+- `read` is best for plain text inspection; it may not fully expose tables/images/layout.
+- If blocks matter, use `list_blocks`.
+- Prefer the smallest write that solves the task. Avoid `write` when the user asked for a local edit.
+- If creating a new document for the requesting user, ensure the requester gets edit access when your environment/tooling expects that.
+
+## Verification
+
+After edits:
+- re-read the doc with `read` for text changes
+- use `list_blocks` when validating tables/images/block structure
+- mention any limitation if formatting cannot be perfectly verified via plain text
+
+## References
+
+Read as needed:
+- `references/actions.md` — action cheat sheet and parameter patterns
+- `references/gotchas.md` — common failure points and safe defaults
+- `references/recipes.md` — common end-to-end workflows

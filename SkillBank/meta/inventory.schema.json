@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SkillBankInventory",
+  "type": "object",
+  "required": ["entries"],
+  "properties": {
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "rel_path",
+          "role",
+          "has_skill_md",
+          "status_label",
+          "sensitive_hits",
+          "suggested_action"
+        ],
+        "properties": {
+          "rel_path": { "type": "string" },
+          "role": { "type": "string" },
+          "has_skill_md": { "type": "boolean" },
+          "status_label": { "type": ["string", "null"] },
+          "sensitive_hits": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "suggested_action": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

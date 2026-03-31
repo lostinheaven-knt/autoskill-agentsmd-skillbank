@@ -1,0 +1,24 @@
+analysis:
+  finance:
+    - a-stock-quick-research
+coding:
+  refactor:
+    - safe-refactor
+debugging:
+  first-15-min: []
+media:
+  image:
+    - image-read
+    - image-generate
+  video:
+    - video-read
+    - video-generate
+ops:
+  feishu:
+    - feishu-doc
+    - feishu-drive
+    - feishu-perm
+    - feishu-wiki
+  github:
+    - github-cli
+misc: {}

@@ -1,0 +1,10 @@
+max_seed_examples: 8
+retain:
+  - feishu-doc
+  - feishu-drive
+  - feishu-perm
+  - feishu-wiki
+  - github-cli
+  - image-read
+  - video-read
+  - image-generate

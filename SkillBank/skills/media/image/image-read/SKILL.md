@@ -1,35 +1,65 @@
-# Image Read - 图像理解技能
+---
+name: image-read
+description: Understand and describe images using a multimodal vision model. Use when the user asks what is in an image, wants a detailed image description, asks visual questions, or needs scene/object analysis from an image URL.
+---
 
-## Purpose
-TODO: Describe the purpose in 1-2 sentences.
+# Image Read
+
+Use this skill for **image understanding and visual question answering**.
 
 ## When to use
-- TODO: specify scenarios where this skill applies.
+
+Trigger when the user wants to:
+- know what is in an image
+- get a detailed description of an image
+- ask a question about visible objects, people, layout, or scene context
+- analyze style, composition, or notable visual details
 
 ## When NOT to use
-- TODO: specify at least one situation where this skill should NOT be used.
 
-## Inputs / Preconditions
-- Required info: TODO
-- Assumptions: TODO
-- Constraints: TODO
+Do **not** use this skill for:
+- generating new images
+- OCR-heavy document extraction when a dedicated OCR/document path is better
+- editing or transforming an image
+- video understanding
 
-## Procedure
-1. TODO: refine this step with concrete actions and parameters.
+## Core workflow
 
-## Checks
-- TODO: add at least one verifiable check.
+1. Confirm the image input source, usually a reachable image URL.
+2. Decide whether the task is:
+   - general description
+   - targeted question answering
+   - style/composition analysis
+3. Use the image understanding script with an explicit question.
+4. Return the answer in plain language.
+5. If the model output is uncertain, say so instead of overclaiming.
 
-## Failure modes
-- TODO: list at least one failure mode and how to detect it.
+## Recommended task patterns
 
-## Examples
-### Example 1
-TODO
+- **Describe this image** → broad descriptive question
+- **What objects/people are visible?** → targeted object question
+- **What is happening in the scene?** → action/scene question
+- **Analyze style/composition** → visual-design question
 
-## Version / Changelog
-- v0.1.0: imported (autofix)
+## Gotchas
 
-<!-- ORIGINAL_EXTRA_SECTIONS_DETECTED -->
-<!-- Please review original draft for additional headings not covered by the template. -->
-- merged: auto-dedupe merged similar skills
+- Use the coding-plan base URL required by this workflow; mismatched endpoints can fail silently or behave differently.
+- Vague prompts produce vague descriptions. Ask the model a precise question when precision matters.
+- An image URL must be reachable by the script/runtime.
+- Vision answers can be uncertain on tiny details, text, identity, or hidden context; don’t overstate confidence.
+- This skill is for understanding images, not generating them.
+
+## Verification
+
+After running the script:
+- ensure the call succeeded
+- ensure the response actually addresses the user’s question
+- mention uncertainty on ambiguous visual details
+
+## References
+
+Read as needed:
+- `references/usage.md` — script usage and task modes
+- `references/questioning.md` — how to ask better visual questions
+- `references/gotchas.md` — endpoint/input limitations and confidence rules
+- `scripts/image_understand.py` — reusable image understanding script

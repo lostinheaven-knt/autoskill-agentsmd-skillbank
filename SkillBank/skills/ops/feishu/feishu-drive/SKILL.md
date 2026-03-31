@@ -1,35 +1,60 @@
-# Feishu Drive Tool
+---
+name: feishu-drive
+description: Manage Feishu drive files and folders. Use when the user mentions cloud drive, folders, moving files, creating folders, browsing shared storage, or deleting/moving Feishu files.
+---
 
-## Purpose
-TODO: Describe the purpose in 1-2 sentences.
+# Feishu Drive
+
+Use this skill for Feishu **file and folder management**.
 
 ## When to use
-- TODO: specify scenarios where this skill applies.
 
-## When NOT to use
-- TODO: specify at least one situation where this skill should NOT be used.
+Trigger when the user wants to:
+- list files in a Feishu folder
+- inspect file metadata
+- create a folder
+- move a file/folder into another folder
+- delete a file/folder from Feishu drive
 
-## Inputs / Preconditions
-- Required info: TODO
-- Assumptions: TODO
-- Constraints: TODO
+Do **not** use this skill for:
+- editing document content → `feishu-doc`
+- wiki navigation or wiki node operations → `feishu-wiki`
+- sharing/collaborator changes → `feishu-perm`
 
-## Procedure
-1. TODO: refine this step with concrete actions and parameters.
+## Core workflow
 
-## Checks
-- TODO: add at least one verifiable check.
+1. Extract a `folder_token` or file token from a Feishu drive URL when available.
+2. For discovery, start with `list`.
+3. For a known file, use `info` if you need metadata before moving/deleting it.
+4. For mutations, confirm the target folder/object type as needed.
+5. After move/create/delete, verify with `list` or `info`.
 
-## Failure modes
-- TODO: list at least one failure mode and how to detect it.
+## Recommended task patterns
 
-## Examples
-### Example 1
-TODO
+- **Browse a folder** → `list`
+- **Inspect one file/folder** → `info`
+- **Create subfolder** → `create_folder`
+- **Move object** → `move`
+- **Delete object** → `delete`
 
-## Version / Changelog
-- v0.1.0: imported (autofix)
+## Gotchas
 
-<!-- ORIGINAL_EXTRA_SECTIONS_DETECTED -->
-<!-- Please review original draft for additional headings not covered by the template. -->
-- merged: auto-dedupe merged similar skills
+- Feishu bots may not have a usable root drive like a human account does.
+- Creating a folder without a valid parent folder token may fail in bot contexts.
+- Bots often only see files/folders explicitly shared with them.
+- `type` matters for `info`, `move`, and `delete`; don’t guess if you can verify first.
+- For destructive actions like delete, prefer confirming the exact target when ambiguity exists.
+
+## Verification
+
+After mutations:
+- use `list` on the parent folder to confirm presence/absence
+- use `info` when validating a known object
+- if a move appears to fail, verify both source and destination folders
+
+## References
+
+Read as needed:
+- `references/actions.md` — action patterns and examples
+- `references/gotchas.md` — common constraints in bot/shared-drive contexts
+- `references/recipes.md` — standard workflows for browse/create/move/delete

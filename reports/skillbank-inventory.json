@@ -1,0 +1,2377 @@
+{
+  "entries": [
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/426345955d8e/coding/refactor/safe-refactor",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Leaf Skill Template"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/a-stock-analysis-1-0-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "A股实时行情与分时量能分析"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/agent-self-reflection-1-0-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Self-Reflection Skill"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/architecture-designer-0-1-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Architecture Designer"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/automation-workflows-0-1-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Automation Workflows"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/backtest-expert-0-1-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Backtest Expert"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/content-strategy-0-1-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Content Strategy"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/copywriting-0-1-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Copywriting"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/debug-pro-1-0-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "debug-pro"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/ffmpeg-video-editor-1-0-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "FFmpeg Video Editor"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/frontend-design-3-0-1-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Frontend Design"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/interview-designer-1-0-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Interview Designer Skill"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/opencode-controller-1-0-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Opencode Controller"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/security-auditor-1-0-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Security Auditor"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/seo-1-0-3",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Untitled Skill"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/seo-content-writer-2-0-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "SEO Content Writer"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/session-logs-1-0-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "session-logs"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/skill-creator-0-1-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Skill Creator"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/skill-vetter-1-0-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Skill Vetter 🔒"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/social-content-generator-0-1-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Social Content"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/social-media-scheduler-1-0-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Social Media Scheduler"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/test-runner-1-0-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "test-runner"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/tmux-1-0-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "tmux Skill (Clawdbot)"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/imported/openclaw-agents-skills/video-frames-1-0-0",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Video Frames (ffmpeg)"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/product/genstore/genstore-operation",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Genstore Operation Skill"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/superpowers-raw/skills/brainstorming",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Brainstorming Ideas Into Designs"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/superpowers-raw/skills/dispatching-parallel-agents",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Dispatching Parallel Agents"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/superpowers-raw/skills/executing-plans",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Executing Plans"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/superpowers-raw/skills/finishing-a-development-branch",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Finishing a Development Branch"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/superpowers-raw/skills/receiving-code-review",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Code Review Reception"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/superpowers-raw/skills/requesting-code-review",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Requesting Code Review"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/superpowers-raw/skills/subagent-driven-development",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Subagent-Driven Development"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/superpowers-raw/skills/using-superpowers",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Using Skills"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/superpowers-raw/skills/verification-before-completion",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Verification Before Completion"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-production-stopgap/skills/superpowers-raw/skills/writing-skills",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Writing Skills"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/analysis/finance/a-stock-research",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "A股股票基本面与消息面研究"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/analysis/finance/finance-expert",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Finance Expert"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/clawdefender-1",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "ClawDefender"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/feishu-chat-history",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Feishu Chat History"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/feishu-cron-reminder",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Feishu Cron Reminder"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/feishu-send-file",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Feishu Send File"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/finance-expert",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Finance Expert"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/media/image/image-generate",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Image Generate"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/media/image/image-read",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Image Read - 图像理解技能"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/misc/agent-browser",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Browser Automation with agent-browser"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/misc/content-creation",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Content Creation Skill"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/misc/find-skills",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Find Skills"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/misc/veadk-skills",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "VeADK Agent 生成"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/ops/feishu/feishu-api-operation",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Feishu API Operation Skill"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/ops/feishu/feishu-doc",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Feishu Document Tool"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/ops/feishu/feishu-drive",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Feishu Drive Tool"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/ops/feishu/feishu-perm",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [
+        "email"
+      ],
+      "suggested_action": "ignore",
+      "title": "Feishu Permission Tool"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/ops/feishu/feishu-wiki",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Feishu Wiki Tool"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/ops/github/github-cli",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "GitHub CLI (gh) Skill"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/plugmem-deepseek-demo",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "PlugMem DeepSeek Demo Skill"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/plugmem-internal",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "PlugMem (internal)"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/self-improvement",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Self-Improvement Skill"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/supabase-postgres-best-practices",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Supabase Postgres Best Practices"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/superpowers-writing-plans",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Writing Plans"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/systematic-debugging",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Systematic Debugging"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/test-driven-development",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Test-Driven Development (TDD)"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/tushare",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Tushare"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/using-git-worktrees",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Using Git Worktrees"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/video-generate",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Video Generate"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/video-read",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Video Read - 视频理解技能"
+    },
+    {
+      "rel_path": ".trash/2026-03-31-todo-heavy-offshelf/skills/web-design-guidelines",
+      "role": "trash",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "ignore",
+      "title": "Web Interface Guidelines"
+    },
+    {
+      "rel_path": "drafts/_merged/0189b699aac7/superpowers-raw/skills/test-driven-development",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Test-Driven Development (TDD)"
+    },
+    {
+      "rel_path": "drafts/_merged/0447d7f246d3/find-skills",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Find Skills"
+    },
+    {
+      "rel_path": "drafts/_merged/04f8d3b76982/feishu-perm",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [
+        "email"
+      ],
+      "suggested_action": "review",
+      "title": "Feishu Permission Tool"
+    },
+    {
+      "rel_path": "drafts/_merged/07f70e55577e/media/video/video-read",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Video Read - 视频理解技能"
+    },
+    {
+      "rel_path": "drafts/_merged/0af406928cd5/imported/openclaw-agents-skills/code-1-0-4",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Untitled Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/10e78ca27df1/10e78ca27df1/subagent-driven-development",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Subagent-Driven Development"
+    },
+    {
+      "rel_path": "drafts/_merged/10e78ca27df1/subagent-driven-development",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Subagent-Driven Development"
+    },
+    {
+      "rel_path": "drafts/_merged/1414916e57f6/content-creation",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Content Creation Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/1492ff060872/finishing-a-development-branch",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Finishing a Development Branch"
+    },
+    {
+      "rel_path": "drafts/_merged/15cd626eee05/genstore-operation",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Genstore Operation Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/18e0d196a9f7/18e0d196a9f7/imported/openclaw-agents-skills/writing-plans-0-1-0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Writing Plans"
+    },
+    {
+      "rel_path": "drafts/_merged/18e0d196a9f7/18e0d196a9f7/imported/openclaw-agents-skills/writing-plans-0-1-0-backup",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Writing Plans"
+    },
+    {
+      "rel_path": "drafts/_merged/18e0d196a9f7/18e0d196a9f7/superpowers-raw/skills/writing-plans",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Writing Plans"
+    },
+    {
+      "rel_path": "drafts/_merged/18e0d196a9f7/imported/openclaw-agents-skills/writing-plans-0-1-0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Writing Plans"
+    },
+    {
+      "rel_path": "drafts/_merged/18e0d196a9f7/imported/openclaw-agents-skills/writing-plans-0-1-0-backup",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Writing Plans"
+    },
+    {
+      "rel_path": "drafts/_merged/18e0d196a9f7/superpowers-raw/skills/writing-plans",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Writing Plans"
+    },
+    {
+      "rel_path": "drafts/_merged/193db3d82be0/feishu-wiki",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Feishu Wiki Tool"
+    },
+    {
+      "rel_path": "drafts/_merged/1bcf9e966c56/1bcf9e966c56/github-cli",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "GitHub CLI (gh) Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/1bcf9e966c56/github-cli",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "GitHub CLI (gh) Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/1c926fc298ec/1c926fc298ec/finishing-a-development-branch",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Finishing a Development Branch"
+    },
+    {
+      "rel_path": "drafts/_merged/1c926fc298ec/finishing-a-development-branch",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Finishing a Development Branch"
+    },
+    {
+      "rel_path": "drafts/_merged/1cb07cf623e0/1cb07cf623e0/misc/self-improvement",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Self-Improvement Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/1cb07cf623e0/misc/self-improvement",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Self-Improvement Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/313ed573e020/image-generate",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Image Generate"
+    },
+    {
+      "rel_path": "drafts/_merged/32a334fdc067/32a334fdc067/misc/veadk-go-skills",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "VeADK Agent 生成"
+    },
+    {
+      "rel_path": "drafts/_merged/32a334fdc067/misc/veadk-go-skills",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "VeADK Agent 生成"
+    },
+    {
+      "rel_path": "drafts/_merged/367d5b2fbee3/367d5b2fbee3/imported/openclaw-agents-skills/brainstorming-0-1-0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Brainstorming Ideas Into Designs"
+    },
+    {
+      "rel_path": "drafts/_merged/367d5b2fbee3/367d5b2fbee3/imported/openclaw-agents-skills/brainstorming-0-1-0-backup",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Brainstorming Ideas Into Designs"
+    },
+    {
+      "rel_path": "drafts/_merged/367d5b2fbee3/367d5b2fbee3/superpowers-brainstorming",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Brainstorming Ideas Into Designs"
+    },
+    {
+      "rel_path": "drafts/_merged/367d5b2fbee3/imported/openclaw-agents-skills/brainstorming-0-1-0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Brainstorming Ideas Into Designs"
+    },
+    {
+      "rel_path": "drafts/_merged/367d5b2fbee3/imported/openclaw-agents-skills/brainstorming-0-1-0-backup",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Brainstorming Ideas Into Designs"
+    },
+    {
+      "rel_path": "drafts/_merged/367d5b2fbee3/superpowers-brainstorming",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Brainstorming Ideas Into Designs"
+    },
+    {
+      "rel_path": "drafts/_merged/3aa16a1dae69/github/gh-cli",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "GitHub CLI (gh) Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/3aa16a1dae69/github-cli",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "GitHub CLI (gh) Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/426345955d8e/coding/refactor/safe-refactor",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Leaf Skill Template"
+    },
+    {
+      "rel_path": "drafts/_merged/51522201151f/subagent-driven-development",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Subagent-Driven Development"
+    },
+    {
+      "rel_path": "drafts/_merged/5a9df022950b/superpowers-raw/skills/writing-plans",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Writing Plans"
+    },
+    {
+      "rel_path": "drafts/_merged/6cd26a186df4/misc/veadk-go-skills",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "VeADK Agent 生成"
+    },
+    {
+      "rel_path": "drafts/_merged/738122d6a6b8/image-read",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Image Read - 图像理解技能"
+    },
+    {
+      "rel_path": "drafts/_merged/77ce2bcef754/77ce2bcef754/find-skills",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Find Skills"
+    },
+    {
+      "rel_path": "drafts/_merged/77ce2bcef754/find-skills",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Find Skills"
+    },
+    {
+      "rel_path": "drafts/_merged/77f84098408c/77f84098408c/superpowers-raw/skills/test-driven-development",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Test-Driven Development (TDD)"
+    },
+    {
+      "rel_path": "drafts/_merged/77f84098408c/superpowers-raw/skills/test-driven-development",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Test-Driven Development (TDD)"
+    },
+    {
+      "rel_path": "drafts/_merged/85d3fa3a5e3f/85d3fa3a5e3f/superpowers-raw/skills/using-git-worktrees",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Using Git Worktrees"
+    },
+    {
+      "rel_path": "drafts/_merged/85d3fa3a5e3f/superpowers-raw/skills/using-git-worktrees",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Using Git Worktrees"
+    },
+    {
+      "rel_path": "drafts/_merged/86ec00d1aee2/misc/web-design-guidelines",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Web Interface Guidelines"
+    },
+    {
+      "rel_path": "drafts/_merged/8a9cce2d9f0d/feishu-doc",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Feishu Document Tool"
+    },
+    {
+      "rel_path": "drafts/_merged/8b2e65b66b87/8b2e65b66b87/misc/web-design-guidelines",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Web Interface Guidelines"
+    },
+    {
+      "rel_path": "drafts/_merged/8b2e65b66b87/misc/web-design-guidelines",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Web Interface Guidelines"
+    },
+    {
+      "rel_path": "drafts/_merged/8c6181d6a7ef/memory/plugmem-deepseek-demo",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [
+        "env_secret_name",
+        "secret_assignment"
+      ],
+      "suggested_action": "review",
+      "title": "PlugMem DeepSeek Demo Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/92972d80b8d5/92972d80b8d5/analysis/finance/finance-expert",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Finance Expert"
+    },
+    {
+      "rel_path": "drafts/_merged/92972d80b8d5/analysis/finance/finance-expert",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Finance Expert"
+    },
+    {
+      "rel_path": "drafts/_merged/9a5fe4495470/9a5fe4495470/content-creation",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Content Creation Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/9a5fe4495470/content-creation",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Content Creation Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/9fb0714a0bab/feishu-api-operation",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Feishu API Operation Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/b5dd2aa210ac/feishu-drive",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Feishu Drive Tool"
+    },
+    {
+      "rel_path": "drafts/_merged/b63fea88fe2c/superpowers-executing-plans",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Executing Plans"
+    },
+    {
+      "rel_path": "drafts/_merged/b830b07ad5c8/a-stock-research",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "A股股票基本面与消息面研究"
+    },
+    {
+      "rel_path": "drafts/_merged/c7e1b381ffc9/d1a7f8b7ccec/agent-browser",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Browser Automation with agent-browser"
+    },
+    {
+      "rel_path": "drafts/_merged/cc9cbdf26380/misc/self-improvement",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Self-Improvement Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/d1a7f8b7ccec/agent-browser",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Browser Automation with agent-browser"
+    },
+    {
+      "rel_path": "drafts/_merged/d4d3db130cd5/superpowers-brainstorming",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Brainstorming Ideas Into Designs"
+    },
+    {
+      "rel_path": "drafts/_merged/d7a0147da3b6/d7a0147da3b6/superpowers-raw/skills/systematic-debugging",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Systematic Debugging"
+    },
+    {
+      "rel_path": "drafts/_merged/d7a0147da3b6/superpowers-raw/skills/systematic-debugging",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Systematic Debugging"
+    },
+    {
+      "rel_path": "drafts/_merged/e8ff9f542bf4/superpowers-raw/skills/using-git-worktrees",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Using Git Worktrees"
+    },
+    {
+      "rel_path": "drafts/_merged/ee8f54183a35/ee8f54183a35/imported/openclaw-agents-skills/executing-plans-0-1-0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Executing Plans"
+    },
+    {
+      "rel_path": "drafts/_merged/ee8f54183a35/ee8f54183a35/imported/openclaw-agents-skills/executing-plans-0-1-0-backup",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Executing Plans"
+    },
+    {
+      "rel_path": "drafts/_merged/ee8f54183a35/ee8f54183a35/superpowers-executing-plans",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Executing Plans"
+    },
+    {
+      "rel_path": "drafts/_merged/ee8f54183a35/imported/openclaw-agents-skills/executing-plans-0-1-0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Executing Plans"
+    },
+    {
+      "rel_path": "drafts/_merged/ee8f54183a35/imported/openclaw-agents-skills/executing-plans-0-1-0-backup",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Executing Plans"
+    },
+    {
+      "rel_path": "drafts/_merged/ee8f54183a35/superpowers-executing-plans",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Executing Plans"
+    },
+    {
+      "rel_path": "drafts/_merged/f256cd715fc2/media/video/video-generate",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Video Generate"
+    },
+    {
+      "rel_path": "drafts/_merged/f848b0c151dc/superpowers-raw/skills/systematic-debugging",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Systematic Debugging"
+    },
+    {
+      "rel_path": "drafts/_merged/fc454cf43c85/fc454cf43c85/imported/openclaw-agents-skills/code-1-0-4",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Untitled Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/fc454cf43c85/fc454cf43c85/imported/openclaw-agents-skills/market-research-1-0-0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Untitled Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/fc454cf43c85/fc454cf43c85/imported/openclaw-agents-skills/ui-ux-pro-max-0-1-0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Untitled Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/fc454cf43c85/imported/openclaw-agents-skills/code-1-0-4",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Untitled Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/fc454cf43c85/imported/openclaw-agents-skills/market-research-1-0-0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Untitled Skill"
+    },
+    {
+      "rel_path": "drafts/_merged/fc454cf43c85/imported/openclaw-agents-skills/ui-ux-pro-max-0-1-0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Untitled Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/a-stock-analysis-1.0.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "A股实时行情与分时量能分析"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/agent-browser",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Browser Automation with agent-browser"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/agent-self-reflection-1.0.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Self-Reflection Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/analysis/finance/a-stock-research",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "A股股票基本面与消息面研究"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/analysis/finance/finance-expert",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Finance Expert"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/architecture-designer-0.1.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Architecture Designer"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/automation-workflows-0.1.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Automation Workflows"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/backtest-expert-0.1.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Backtest Expert"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/brainstorming-0.1.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Brainstorming Ideas Into Designs"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/brainstorming-0.1.0-backup",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Brainstorming Ideas Into Designs"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/clawdefender-1",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "ClawDefender"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/code-1.0.4",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Untitled Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/content-creation",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Content Creation Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/content-strategy-0.1.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Content Strategy"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/copywriting-0.1.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Copywriting"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/debug-pro-1.0.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "debug-pro"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/executing-plans-0.1.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Executing Plans"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/executing-plans-0.1.0-backup",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Executing Plans"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/feishu-chat-history",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Feishu Chat History"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/feishu-cron-reminder",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Feishu Cron Reminder"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/feishu-send-file",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Feishu Send File"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/ffmpeg-video-editor-1.0.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "FFmpeg Video Editor"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/finance-expert",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Finance Expert"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/find-skills",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Find Skills"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/finishing-a-development-branch",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Finishing a Development Branch"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/frontend-design-3-0.1.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Frontend Design"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/github-cli",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "GitHub CLI (gh) Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/interview-designer-1.0.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Interview Designer Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/market-research-1.0.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Untitled Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/media/image/image-generate",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Image Generate"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/media/image/image-read",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Image Read - 图像理解技能"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/media/video/video-generate",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Video Generate"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/media/video/video-read",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Video Read - 视频理解技能"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/misc/agent-browser",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Browser Automation with agent-browser"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/misc/content-creation",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Content Creation Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/misc/find-skills",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Find Skills"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/misc/self-improvement",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Self-Improvement Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/misc/veadk-go-skills",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "VeADK Agent 生成"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/misc/veadk-skills",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "VeADK Agent 生成"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/misc/web-design-guidelines",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Web Interface Guidelines"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/opencode-controller-1.0.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Opencode Controller"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/ops/feishu/feishu-api-operation",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Feishu API Operation Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/ops/feishu/feishu-doc",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Feishu Document Tool"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/ops/feishu/feishu-drive",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Feishu Drive Tool"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/ops/feishu/feishu-perm",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [
+        "email"
+      ],
+      "suggested_action": "review",
+      "title": "Feishu Permission Tool"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/ops/feishu/feishu-wiki",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Feishu Wiki Tool"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/ops/github/github-cli",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "GitHub CLI (gh) Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/product/genstore/genstore-operation",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Genstore Operation Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/security-auditor-1.0.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Security Auditor"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/self-improvement",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Self-Improvement Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/seo-1.0.3",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Untitled Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/seo-content-writer-2.0.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "SEO Content Writer"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/session-logs-1.0.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "session-logs"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/skill-creator-0.1.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Skill Creator"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/skill-vetter-1.0.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Skill Vetter 🔒"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/social-content-generator-0.1.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Social Content"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/social-media-scheduler-1.0.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Social Media Scheduler"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/subagent-driven-development",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Subagent-Driven Development"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/supabase-postgres-best-practices",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Supabase Postgres Best Practices"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-brainstorming",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Brainstorming Ideas Into Designs"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-executing-plans",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Executing Plans"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-raw/skills/brainstorming",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Brainstorming Ideas Into Designs"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-raw/skills/dispatching-parallel-agents",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Dispatching Parallel Agents"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-raw/skills/executing-plans",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Executing Plans"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-raw/skills/finishing-a-development-branch",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Finishing a Development Branch"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-raw/skills/receiving-code-review",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Code Review Reception"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-raw/skills/requesting-code-review",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Requesting Code Review"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-raw/skills/subagent-driven-development",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Subagent-Driven Development"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-raw/skills/systematic-debugging",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Systematic Debugging"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-raw/skills/test-driven-development",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Test-Driven Development (TDD)"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-raw/skills/using-git-worktrees",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Using Git Worktrees"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-raw/skills/using-superpowers",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Using Skills"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-raw/skills/verification-before-completion",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Verification Before Completion"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-raw/skills/writing-plans",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Writing Plans"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-raw/skills/writing-skills",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Writing Skills"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/superpowers-writing-plans",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Writing Plans"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/systematic-debugging",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Systematic Debugging"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/test-driven-development",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Test-Driven Development (TDD)"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/test-runner-1.0.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "test-runner"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/tmux-1.0.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "tmux Skill (Clawdbot)"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/tushare",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Tushare"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/ui-ux-pro-max-0.1.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Untitled Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/using-git-worktrees",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Using Git Worktrees"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/video-frames-1.0.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Video Frames (ffmpeg)"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/web-design-guidelines",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Web Interface Guidelines"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/writing-plans-0.1.0",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Writing Plans"
+    },
+    {
+      "rel_path": "drafts/openclaw-agents-skills/writing-plans-0.1.0-backup",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Writing Plans"
+    },
+    {
+      "rel_path": "drafts/openclaw-workspace-skills/a-stock-research",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "A股股票基本面与消息面研究"
+    },
+    {
+      "rel_path": "drafts/openclaw-workspace-skills/feishu-api-operation",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Feishu API Operation Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-workspace-skills/feishu-doc",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Feishu Document Tool"
+    },
+    {
+      "rel_path": "drafts/openclaw-workspace-skills/feishu-drive",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Feishu Drive Tool"
+    },
+    {
+      "rel_path": "drafts/openclaw-workspace-skills/feishu-perm",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [
+        "email"
+      ],
+      "suggested_action": "review",
+      "title": "Feishu Permission Tool"
+    },
+    {
+      "rel_path": "drafts/openclaw-workspace-skills/feishu-wiki",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Feishu Wiki Tool"
+    },
+    {
+      "rel_path": "drafts/openclaw-workspace-skills/genstore-operation",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Genstore Operation Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-workspace-skills/github-cli",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "GitHub CLI (gh) Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-workspace-skills/image-generate",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Image Generate"
+    },
+    {
+      "rel_path": "drafts/openclaw-workspace-skills/image-read",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Image Read - 图像理解技能"
+    },
+    {
+      "rel_path": "drafts/openclaw-workspace-skills/plugmem-deepseek-demo",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "PlugMem DeepSeek Demo Skill"
+    },
+    {
+      "rel_path": "drafts/openclaw-workspace-skills/plugmem-internal",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "PlugMem (internal)"
+    },
+    {
+      "rel_path": "drafts/openclaw-workspace-skills/video-generate",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Video Generate"
+    },
+    {
+      "rel_path": "drafts/openclaw-workspace-skills/video-read",
+      "role": "draft",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "review",
+      "title": "Video Read - 视频理解技能"
+    },
+    {
+      "rel_path": "seed_openclaw_skills/feishu-doc",
+      "role": "seed",
+      "has_skill_md": true,
+      "status_label": "SEED STATUS: PROMOTED",
+      "sensitive_hits": [],
+      "suggested_action": "keep",
+      "title": "Feishu Document Tool"
+    },
+    {
+      "rel_path": "seed_openclaw_skills/feishu-drive",
+      "role": "seed",
+      "has_skill_md": true,
+      "status_label": "SEED STATUS: PROMOTED",
+      "sensitive_hits": [],
+      "suggested_action": "keep",
+      "title": "Feishu Drive Tool"
+    },
+    {
+      "rel_path": "seed_openclaw_skills/feishu-perm",
+      "role": "seed",
+      "has_skill_md": true,
+      "status_label": "SEED STATUS: PROMOTED",
+      "sensitive_hits": [
+        "email"
+      ],
+      "suggested_action": "sanitize",
+      "title": "Feishu Permission Tool"
+    },
+    {
+      "rel_path": "seed_openclaw_skills/feishu-wiki",
+      "role": "seed",
+      "has_skill_md": true,
+      "status_label": "SEED STATUS: PROMOTED",
+      "sensitive_hits": [],
+      "suggested_action": "keep",
+      "title": "Feishu Wiki Tool"
+    },
+    {
+      "rel_path": "seed_openclaw_skills/github-cli",
+      "role": "seed",
+      "has_skill_md": true,
+      "status_label": "SEED STATUS: RAW",
+      "sensitive_hits": [],
+      "suggested_action": "keep",
+      "title": "GitHub CLI (gh) Skill"
+    },
+    {
+      "rel_path": "seed_openclaw_skills/image-generate",
+      "role": "seed",
+      "has_skill_md": true,
+      "status_label": "SEED STATUS: RAW",
+      "sensitive_hits": [
+        "env_secret_name"
+      ],
+      "suggested_action": "sanitize",
+      "title": "Image Generate"
+    },
+    {
+      "rel_path": "seed_openclaw_skills/image-read",
+      "role": "seed",
+      "has_skill_md": true,
+      "status_label": "SEED STATUS: PROMOTED",
+      "sensitive_hits": [
+        "env_secret_name",
+        "secret_assignment"
+      ],
+      "suggested_action": "sanitize",
+      "title": "Image Read - 图像理解技能"
+    },
+    {
+      "rel_path": "seed_openclaw_skills/video-read",
+      "role": "seed",
+      "has_skill_md": true,
+      "status_label": "SEED STATUS: RAW; SEED STATUS: SENSITIVE",
+      "sensitive_hits": [
+        "env_secret_name",
+        "secret_assignment"
+      ],
+      "suggested_action": "sanitize",
+      "title": "Video Read - 视频理解技能"
+    },
+    {
+      "rel_path": "skills/debugging/first-15-min",
+      "role": "production",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "keep",
+      "title": "Leaf Skill Template"
+    },
+    {
+      "rel_path": "skills/media/image/image-read",
+      "role": "production",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "keep",
+      "title": "Image Read"
+    },
+    {
+      "rel_path": "skills/memory/plugmem-internal",
+      "role": "production",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [
+        "env_secret_name",
+        "secret_assignment"
+      ],
+      "suggested_action": "review",
+      "title": "PlugMem (internal)"
+    },
+    {
+      "rel_path": "skills/ops/feishu/feishu-doc",
+      "role": "production",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "keep",
+      "title": "Feishu Doc"
+    },
+    {
+      "rel_path": "skills/ops/feishu/feishu-drive",
+      "role": "production",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "keep",
+      "title": "Feishu Drive"
+    },
+    {
+      "rel_path": "skills/ops/feishu/feishu-perm",
+      "role": "production",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "keep",
+      "title": "Feishu Perm"
+    },
+    {
+      "rel_path": "skills/ops/feishu/feishu-wiki",
+      "role": "production",
+      "has_skill_md": true,
+      "status_label": null,
+      "sensitive_hits": [],
+      "suggested_action": "keep",
+      "title": "Feishu Wiki"
+    }
+  ]
+}

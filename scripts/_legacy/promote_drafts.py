@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+"""LEGACY: historical pipeline script.
+
+This file is retained for reference only and is not part of the current governance-first recommended workflow. Prefer the governance helpers under scripts/ and scripts/skillbank/.
+"""
+
 """Promote draft skills into curated SkillBank/skills with reports.
 
 This is the Phase-B step of the pipeline:

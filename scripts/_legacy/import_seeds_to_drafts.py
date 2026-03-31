@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+"""LEGACY: historical pipeline script.
+
+This file is retained for reference only and is not part of the current governance-first recommended workflow. Prefer the governance helpers under scripts/ and scripts/skillbank/.
+"""
+
 """Import skills from read-only seed stores into SkillBank/drafts.
 
 This is the Phase-A step of the pipeline:

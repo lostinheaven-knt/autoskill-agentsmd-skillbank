@@ -1,58 +1,90 @@
 # autoskill-agentsmd-skillbank
 
-A minimal, production-oriented blueprint for the “third way”:
+A governance-first reference repository for retrieval-led SkillBank usage.
 
-- **AutoSkill** handles **skill extraction → maintenance (add/merge/discard) → versioning** (asynchronous, offline).
-- **AGENTS.md DocIndex** handles **usage**: *Explore index → Expand leaf docs*.
+This repo demonstrates how to:
 
-This repo focuses on the **DocIndex + leaf SkillBank filesystem layout** (no embeddings, no vector DB).
+- keep a small, deterministic DocIndex in `AGENTS.md`
+- separate production skills from seed/source material
+- validate and review skills before promotion
+- retire bad examples without losing traceability
+
+It is **not** positioned as a bulk auto-promotion pipeline for turning arbitrary seeds into production skills.
+Legacy pipeline scripts are retained only under `scripts/_legacy/` for historical reference.
 
 ## Key idea
 
-> **Prefer retrieval-led reasoning over pre-training-led reasoning.**
+> Prefer retrieval-led reasoning over pre-training-led reasoning.
 
-Instead of hoping an agent will *decide* to trigger a skill or run semantic search, we keep a small routing table (DocIndex) always present.
-The agent explores it and opens the corresponding leaf documents on demand.
+Instead of assuming an agent will correctly trigger hidden skills, keep a small routing table always present.
+The agent explores the index, opens the most relevant leaf, and follows the leaf doc.
 
 ## Repository layout
 
-```
+```text
 SkillBank/
-  skills/                  # curated leaf skills (each leaf is a directory containing SKILL.md)
-  drafts/                  # candidates that failed quality gate
-  meta/                    # machine metadata (versioning/provenance)
-  skill.template.md        # leaf template
-
-skill-seeds/
-  openclaw-workspace-skills/   # archived from ~/.openclaw/workspace/skills (read-only)
-  openclaw-agents-skills/      # archived from ~/.openclaw/workspace/.agents/skills (read-only)
+  skills/                  # production-grade leaf skills only
+  seed_openclaw_skills/    # small, generic, sanitized seed examples
+  drafts/                  # candidates under review
+  meta/                    # governance metadata and validation inputs
+  .trash/                  # retired/isolated content for traceability
+  skill.template.md
 
 scripts/
   build_agents_md_index.py
-  install_into_openclaw_workspace.py
+  review_inventory.py
+  validate_production_skills.py
+  validate_seed_status.py
+  prune_seed_examples.py
+  skillbank/
+  _legacy/                 # historical pipeline scripts; not recommended
 
 tests/
   test_build_agents_md_index.py
 ```
 
-## Conventions (v0.1)
+## Current governance direction
 
-- Leaf = directory + exactly one entry file: `SKILL.md`
-- DocIndex lines are **one leaf path per line** (filenames omitted by convention)
-- Expand leaf = open: `SkillBank/skills/<leaf_path>/SKILL.md`
+- Do not treat seeds as production by default
+- Do not keep large private/workspace-specific skill archives in the routing surface
+- Do not auto-merge or auto-promote aggressively
+- Prefer inventory, validation, sanitization, and reviewed promotion
 
 ## Generate / inject DocIndex
-
-Generate index and inject into `AGENTS.md` markers:
 
 ```bash
 python scripts/build_agents_md_index.py --write
 ```
 
-Print index (no file write):
+Print index only:
 
 ```bash
 python scripts/build_agents_md_index.py --print
+```
+
+## Inventory report
+
+```bash
+python scripts/review_inventory.py --write
+```
+
+## Validate production tree
+
+```bash
+python scripts/validate_production_skills.py
+```
+
+## Validate seed status
+
+```bash
+python scripts/validate_seed_status.py
+```
+
+## Prune seed examples
+
+```bash
+python scripts/prune_seed_examples.py --dry-run
+python scripts/prune_seed_examples.py --apply
 ```
 
 ## Tests
@@ -63,5 +95,6 @@ pytest -q
 
 ## Notes
 
-- The runtime can cache expanded leaf docs in memory (dict), but the canonical source remains the filesystem.
-- This repo intentionally avoids embedding-based retrieval.
+- Only `SkillBank/skills/` is indexed into `AGENTS.md`
+- Seed material is retained only as small, governed source material
+- This repo intentionally favors filesystem retrieval over embedding-based retrieval
